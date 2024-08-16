@@ -37,24 +37,23 @@ public class HomePage extends BasePage{
         boolean isEventPresent = false;
         boolean isDurationPresent = false;
 
-        for(WebElement event : eventNamesList){
-            System.out.println();
-            if(event.getText().contains(eventName)){
-                isEventPresent = true;
-                break;
+        if(isPresent(eventNamesList)){
+            for(WebElement event : eventNamesList){
+                if(event.getText().contains(eventName)){
+                    isEventPresent = true;
+                    break;
+                }
+            }
+            if(eventDuration.equals("60 min")){
+                eventDuration = "1 hr";
+            }
+            for(WebElement event: eventDurationList){
+                if(event.getText().contains(eventDuration)){
+                    isDurationPresent = true;
+                    break;
+                }
             }
         }
-        if(eventDuration.equals("60 min")){
-            eventDuration = "1 hr";
-        }
-        for(WebElement event: eventDurationList){
-            if(event.getText().contains(eventDuration)){
-                isDurationPresent = true;
-                break;
-            }
-        }
-        System.out.println(isEventPresent);
-        System.out.println(isDurationPresent);
         return isEventPresent && isDurationPresent;
     }
 
