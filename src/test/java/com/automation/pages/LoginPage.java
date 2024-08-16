@@ -11,9 +11,21 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//div[@data-testid='email-input']/input")
     WebElement emailInput;
 
+    @FindBy(id = "8ziA9IwKE9GdJWnPNzDsS")
+    WebElement passwordInput;
+
+    @FindBy(xpath = "//button/span[text()='Continue']")
+    WebElement continueBtn;
+
+
+
 
     public void enterEmail(String email) {
         emailInput.sendKeys(email);
+    }
+
+    public void enterPassword(String password) {
+        passwordInput.sendKeys(password);
     }
 
     public void clickOnLoginBtn() {
@@ -25,7 +37,8 @@ public class LoginPage extends BasePage {
         return loginBtn.isDisplayed();
     }
 
-    public void enterPassword(String password) {
 
+    public void clickOnContinue() {
+        continueBtn.click();
     }
 }
