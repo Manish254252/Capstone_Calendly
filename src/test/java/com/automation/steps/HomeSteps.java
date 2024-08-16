@@ -28,7 +28,7 @@ public class HomeSteps {
 
     @Then("verify event {string} and {string} is listed on home page")
     public void verifyEventAndIsListedOnHomePage(String eventName, String eventDuration) {
-        Assert.assertTrue(homePage.isEventListedOnHomePage(eventName, eventDuration));
+        Assert.assertTrue(homePage.isEventListedOnHomePage(ConfigReader.getConfigValue(eventName), ConfigReader.getConfigValue(eventDuration)));
     }
 
     @When("user deletes the event of name {string}")
