@@ -25,6 +25,9 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//div[@data-component='sortable']//h2/ancestor::div[@data-component='event-type-card-list']//button[@aria-expanded]")
     List<WebElement> settingOptions;
 
+    @FindBy(xpath = "//div[@role='dialog']//button[2]")
+    WebElement deleteConfirmBtn;
+
     public void clickOnNewEventTypeButton() {
         newEventTypeButton.click();
     }
