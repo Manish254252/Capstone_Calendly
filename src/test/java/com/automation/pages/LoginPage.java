@@ -12,17 +12,20 @@ public class LoginPage extends BasePage {
     WebElement emailInput;
 
 
+    public void enterEmail(String email) {
+        emailInput.sendKeys(email);
+    }
+
+    public void clickOnLoginBtn() {
+        loginBtn.click();
+    }
 
 
-
-
-
-
-
-
-
-    public boolean isLoginBtnDisplayed()
-    {
+    public boolean isLoginBtnDisplayed() {
         return loginBtn.isDisplayed();
+    }
+
+    public void enterPassword(String password) {
+
     }
 }
