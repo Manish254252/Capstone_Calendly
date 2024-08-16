@@ -14,19 +14,54 @@ public class HomePage extends BasePage{
     WebElement createBtn;
 
     @FindBy(xpath = "//div[@data-component='sortable']//h2")
-    List<String> eventNamesList;
+    List<WebElement> eventNamesList;
 
-    String XPATH_DURATION = "//div[@data-component='sortable']//p[contains(text(),'%s')]";
+    @FindBy(xpath = "//div[@data-component='sortable']//p")
+    List<WebElement> eventDurationList;
 
+    @FindBy(xpath = "//div[@data-component='sortable']//button[@aria-expanded]")
+    List<WebElement> noOfEvents;
 
-
-    public void clickOnTheEventType() {
-    }
+    @FindBy(xpath = "//div[@data-component='sortable']//h2/ancestor::div[@data-component='event-type-card-list']//button[@aria-expanded]")
+    List<WebElement> settingOptions;
 
     public void clickOnNewEventTypeButton() {
+        newEventTypeButton.click();
     }
 
     public boolean isCreateBtnDisplayed() {
         return createBtn.isDisplayed();
+    }
+
+    public boolean isEventListedOnHomePage(String eventName, String eventDuration) {
+        boolean isEventPresent = false;
+        boolean isDurationPresent = false;
+
+        for(WebElement event : eventNamesList){
+            if(event.getText().contains(eventName)){
+                isEventPresent = true;
+                break;
+            }
+        }
+        if(eventDuration.equals("60 min")){
+            eventDuration = "1 hr";
+        }
+        for(WebElement event: eventDurationList){
+            if(event.getText().contains(eventDuration)){
+                isDurationPresent = true;
+                break;
+            }
+        }
+        return isEventPresent && isDurationPresent;
+    }
+
+    public void deleteEventsOfName(String eventName) {
+        while (true){
+            for(int i = 0; i < eventNamesList.size(); i++){
+                if(eventNamesList.get(i).getText().equals(eventName)){
+                    settingOptions.get(i).click();
+                }
+            }
+        }
     }
 }
