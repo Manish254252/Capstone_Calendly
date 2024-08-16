@@ -36,8 +36,5 @@ public class LoginSteps {
         loginPage.clickOnContinue();
     }
 
-    @And("verify user is on homepage")
-    public void verifyUserIsOnHomepage() {
 
-    }
 }
