@@ -44,5 +44,10 @@ public class NewEventSteps {
     @When("user clicks on done button")
     public void userClicksOnDoneButton() {
         newEventPage.clickDoneButton();
+        try {
+            Thread.sleep(20000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

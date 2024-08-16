@@ -38,6 +38,7 @@ public class HomePage extends BasePage{
         boolean isDurationPresent = false;
 
         for(WebElement event : eventNamesList){
+            System.out.println();
             if(event.getText().contains(eventName)){
                 isEventPresent = true;
                 break;
@@ -52,6 +53,8 @@ public class HomePage extends BasePage{
                 break;
             }
         }
+        System.out.println(isEventPresent);
+        System.out.println(isDurationPresent);
         return isEventPresent && isDurationPresent;
     }
 
