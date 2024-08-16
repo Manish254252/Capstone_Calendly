@@ -8,13 +8,14 @@ public class HomeSteps {
 
     HomePage homePage = new HomePage();
 
-    @When("user clicks on new event type")
-    public void userClicksOnNewEventType() {
-        homePage.clickOnNewEventTypeButton();
-    }
-
     @And("user choose the event type {string}")
     public void userChooseTheEventType(String eventType) {
         homePage.clickOnTheEventType();
     }
+
+    @When("user clicks on new event type button")
+    public void userClicksOnNewEventTypeButton() {
+        homePage.clickOnNewEventTypeButton();
+    }
+
 }

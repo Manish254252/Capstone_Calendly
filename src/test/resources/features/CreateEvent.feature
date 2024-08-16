@@ -8,8 +8,10 @@ Feature: Event creation functionality
     And user enters password as "password"
     Then user clicks on continue button
     And verify user is on homepage
-    When user clicks on new event type
+    When user clicks on new event type button
     And user choose the event type "event.type"
+
+
 
 
 
