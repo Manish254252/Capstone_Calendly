@@ -8,7 +8,10 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//div[contains(@class,'list-header')]//span[contains(text(),'New Event Type')]")
     WebElement newEventTypeButton;
 
-    
 
+    public void clickOnTheEventType() {
+    }
 
+    public void clickOnNewEventTypeButton() {
+    }
 }
