@@ -32,7 +32,7 @@ public class HomeSteps {
     }
 
     @When("user deletes the event of name {string}")
-    public void userDeletesTheEventOfNameAndDuration(String eventName, String eventDuration) {
+    public void userDeletesTheEventOfNameAndDuration(String eventName) {
         homePage.deleteEventsOfName(ConfigReader.getConfigValue(eventName));
     }
 

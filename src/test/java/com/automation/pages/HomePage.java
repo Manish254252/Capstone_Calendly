@@ -31,6 +31,9 @@ public class HomePage extends BasePage{
     public void clickOnNewEventTypeButton() {
         newEventTypeButton.click();
     }
+    public void clickOnConfirmDeleteButton() {
+        deleteConfirmBtn.click();
+    }
 
     public boolean isCreateBtnDisplayed() {
         return createBtn.isDisplayed();
