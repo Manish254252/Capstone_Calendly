@@ -9,7 +9,7 @@ public class HomeSteps {
     HomePage homePage = new HomePage();
     @And("verify user is on homepage")
     public void verifyUserIsOnHomepage() {
-
+    homePage.isCreateBtnDisplayed();
     }
     @And("user choose the event type {string}")
     public void userChooseTheEventType(String eventType) {
