@@ -9,7 +9,11 @@ Feature: Event creation functionality
     Then user clicks on continue button
     And verify user is on homepage
     When user clicks on new event type button
-    And user choose the event type "event.type"
+    Then verify new event type page is displayed
+    When user choose the event type "event.type"
+    And user clicks on next button
+    And user enters event name "newEvent.name"
+
 
 
 
