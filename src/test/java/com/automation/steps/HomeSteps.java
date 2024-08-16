@@ -34,6 +34,7 @@ public class HomeSteps {
     @When("user deletes the event of name {string}")
     public void userDeletesTheEventOfNameAndDuration(String eventName) {
         homePage.deleteEventsOfName(ConfigReader.getConfigValue(eventName));
+        homePage.clickOnConfirmDeleteButton();
     }
 
     @Then("verify events are deleted")
