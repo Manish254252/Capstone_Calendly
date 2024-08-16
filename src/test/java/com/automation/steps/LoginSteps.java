@@ -34,4 +34,8 @@ public class LoginSteps {
     @Then("user clicks on continue button")
     public void userClicksOnContinueButton() {
     }
+
+    @And("verify user is on homepage")
+    public void verifyUserIsOnHomepage() {
+    }
 }
