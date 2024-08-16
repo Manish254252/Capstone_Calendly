@@ -4,13 +4,14 @@ import com.automation.pages.HomePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
 
 public class HomeSteps {
 
     HomePage homePage = new HomePage();
     @And("verify user is on homepage")
     public void verifyUserIsOnHomepage() {
-    homePage.isCreateBtnDisplayed();
+        Assert.assertTrue(homePage.isCreateBtnDisplayed());
     }
     @And("user choose the event type {string}")
     public void userChooseTheEventType(String eventType) {

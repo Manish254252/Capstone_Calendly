@@ -13,6 +13,14 @@ public class NewEventPage extends BasePage{
     @FindBy(xpath="//div[@name='eventDuration']")
     WebElement eventDuration;
 
+    String XPATH_DURATION = "//button[text()='%s']";
+
+    @FindBy(xpath = "//button[@type='submit']")
+    WebElement continueBtn;
+
+    @FindBy(xpath = "//h1[contains(text(), 'Your event type is ready!')] ")
+    WebElement confirmationDialogueBox;
+
 
 
 
