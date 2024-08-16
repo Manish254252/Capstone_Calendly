@@ -44,5 +44,6 @@ public class NewEventSteps {
     @When("user clicks on done button")
     public void userClicksOnDoneButton() {
         newEventPage.clickDoneButton();
+
     }
 }

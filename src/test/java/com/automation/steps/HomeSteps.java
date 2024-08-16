@@ -35,4 +35,9 @@ public class HomeSteps {
     public void userDeletesTheEventOfNameAndDuration(String eventName) {
         homePage.deleteEventsOfName(ConfigReader.getConfigValue(eventName));
     }
+
+    @Then("verify events are deleted of name {string}")
+    public void verifyEventsAreDeletedOfName(String eventName) {
+        Assert.assertTrue(homePage.areEventsDeleted(ConfigReader.getConfigValue(eventName)));
+    }
 }

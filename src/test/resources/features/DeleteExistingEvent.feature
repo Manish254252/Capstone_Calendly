@@ -10,4 +10,4 @@ Feature: Delete event functionality
     Then user clicks on continue button
     And verify user is on homepage
     When user deletes the event of name "delete.eventName"
-#    Then verify event/s are deleted
+    Then verify events are deleted of name "delete.eventName"
