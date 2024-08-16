@@ -1,5 +1,6 @@
 package com.automation.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -58,12 +59,14 @@ public class HomePage extends BasePage{
     }
 
     public void deleteEventsOfName(String eventName) {
-        while (true){
             for(int i = 0; i < eventNamesList.size(); i++){
+                System.out.println("inside for");
                 if(eventNamesList.get(i).getText().equals(eventName)){
+                    System.out.println("inside if");
                     settingOptions.get(i).click();
+                    settingOptions.get(i).findElement(By.xpath("//div[@data-component='event-type-card-list']//button[@aria-expanded]/following-sibling::div//button/div[text()='Delete']")).click();
+                    i = 0;
                 }
-            }
         }
     }
 }
