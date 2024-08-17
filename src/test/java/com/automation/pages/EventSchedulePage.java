@@ -74,14 +74,7 @@ public class EventSchedulePage extends BasePage{
     }
 
     public void selectTime(String time) {
-//        isElementVisible(timeListDiv);
-//        try {
-//            Thread.sleep(4000);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
         for(WebElement timeEle : timeButtons){
-            System.out.println(timeEle.getText());
             if(timeEle.getText().equals(time)){
                 timeEle.click();
                 break;
@@ -94,7 +87,6 @@ public class EventSchedulePage extends BasePage{
         nameInput.sendKeys(name);
         emailInput.sendKeys(email);
         textareaInput.sendKeys(msg);
-
     }
 
     public void clickScheduleButton() {
