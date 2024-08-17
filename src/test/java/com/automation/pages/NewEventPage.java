@@ -1,5 +1,6 @@
 package com.automation.pages;
 
+import com.automation.utils.ConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -40,6 +41,10 @@ public class NewEventPage extends BasePage{
     List<WebElement> eventTypeList;
 
 
+    @FindBy(xpath = "//input[@name='inviteesLimit']")
+    WebElement inviteLimitInput;
+
+
     public boolean isEventPageDisplayed() {
         return eventPageTitle.isDisplayed() && eventTypeList.get(0).isDisplayed();
     }
@@ -61,6 +66,9 @@ public class NewEventPage extends BasePage{
         eventDuration.click();
         String xpath = String.format(XPATH_DURATION,duration);
         driver.findElement(By.xpath(xpath)).click();
+        if(eventName.equals("Group")){
+            inviteLimitInput.sendKeys(ConfigReader.getConfigValue("maxInviteLimit"));
+        }
     }
 
     public void clickContinueButton() {

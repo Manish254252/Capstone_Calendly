@@ -1,4 +1,5 @@
 Feature: Event creation functionality
+
   Scenario: verify user can create an event
     Given user opens website
     When user clicks on loginLink
@@ -17,17 +18,3 @@ Feature: Event creation functionality
     Then verify new Event is ready message is displayed
     When user clicks on done button
     Then verify event "newEvent.name" and "newEvent.duration" is listed on home page
-
-
-
-
-
-
-
-
-
-
-
-
-
-
