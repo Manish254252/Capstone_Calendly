@@ -20,6 +20,8 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//div[@data-component='sortable']//p")
     List<WebElement> eventDurationList;
 
+    @FindBy(xpath = "//div[@data-component='sortable']//div/a")
+    List<WebElement> eventBookingPageLink;
 
     @FindBy(xpath = "//div[@data-component='sortable']//h2/ancestor::div[@data-component='event-type-card-list']//button[@aria-expanded]")
     List<WebElement> settingOptions;
@@ -69,12 +71,9 @@ public class HomePage extends BasePage {
             List<WebElement> eventNamesList = driver.findElements(By.xpath("//div[@data-component='sortable']//h2"));
             List<WebElement> settingOptions = driver.findElements(By.xpath("//div[@data-component='sortable']//h2/ancestor::div[@data-component='event-type-card-list']//button[@aria-expanded]"));
             noOfEventsBeforeDeletion = eventNamesList.size();
-
             if (eventNamesList.size() != settingOptions.size()) {
                 continue;
             }
-
-
             for (int i = 0; i < eventNamesList.size(); i++) {
 
                 try {
@@ -92,7 +91,6 @@ public class HomePage extends BasePage {
                         break;
                     }
                 } catch (Exception e) {
-
                     eventsDeleted = true;
                     break;
                 }
@@ -105,5 +103,14 @@ public class HomePage extends BasePage {
         noOfEventsAfterDeletion = eventNamesList.size();
         return noOfEventsAfterDeletion < noOfEventsBeforeDeletion;
 
+    }
+
+    public void clickOnBookingEventLink(String eventName, String eventDuration) {
+        for(int i = 0; i < eventBookingPageLink.size(); i++){
+            if(eventNamesList.get(i).getText().equals(eventName) && eventDurationList.get(i).getText().contains(eventDuration)){
+                eventBookingPageLink.get(i).click();
+                break;
+            }
+        }
     }
 }
