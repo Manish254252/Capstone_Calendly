@@ -40,4 +40,15 @@ public class HomeSteps {
     public void verifyEventsAreDeletedOfName(String eventName) {
         Assert.assertTrue(homePage.areEventsDeleted(ConfigReader.getConfigValue(eventName)));
     }
+
+    @When("user clicks on event of name {string} and duration {string}")
+    public void userClicksOnEventOfNameAndDuration(String eventName, String eventDuration) {
+        homePage.clickOnBookingEventLink(ConfigReader.getConfigValue(eventName), ConfigReader.getConfigValue(eventDuration));
+    }
+
+    @And("switch the tab")
+    public void switchTheTab() {
+        homePage.switchTab();
+    }
+
 }

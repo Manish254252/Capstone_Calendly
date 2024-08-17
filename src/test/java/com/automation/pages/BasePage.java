@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Set;
 
 public class BasePage {
     WebDriver driver;
@@ -28,8 +29,23 @@ public class BasePage {
         try {
             wait.until(ExpectedConditions.visibilityOf(eventNamesList.get(0)));
             return true;
-        } catch (Exception e){
+        } catch (Exception e) {
             return false;
+        }
+    }
+
+    public void isElementVisible(WebElement element) {
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public void switchTab() {
+        List<String> windowIds = driver.getWindowHandles().stream().toList();
+        String currentWindowId = windowIds.get(0);
+
+        if (driver.getWindowHandle().equals(currentWindowId)) {
+            driver.switchTo().window(windowIds.get(1));
+        } else {
+            driver.switchTo().window(windowIds.get(0));
         }
 
     }
