@@ -66,7 +66,7 @@ public class NewEventPage extends BasePage{
         eventDuration.click();
         String xpath = String.format(XPATH_DURATION,duration);
         driver.findElement(By.xpath(xpath)).click();
-        if(eventName.equals("Group")){
+        if(ConfigReader.getConfigValue("eventType.group").contains("Group")){
             inviteLimitInput.sendKeys(ConfigReader.getConfigValue("maxInviteLimit"));
         }
     }
