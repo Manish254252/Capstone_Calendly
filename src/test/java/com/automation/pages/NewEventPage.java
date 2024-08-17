@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import javax.xml.xpath.XPath;
 import java.util.List;
 
 public class NewEventPage extends BasePage{
@@ -27,6 +26,9 @@ public class NewEventPage extends BasePage{
 
     @FindBy(xpath = "//button[@type='submit']")
     WebElement continueBtn;
+
+    @FindBy(xpath = "//div/button/span[text()='Invite users']")
+    WebElement inviteUserButton;
 
     @FindBy(xpath = "//h1[contains(text(), 'Your event type is ready!')] ")
     WebElement confirmationDialogueBox;
