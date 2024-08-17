@@ -1,5 +1,6 @@
 Feature: Event creation functionality
-  Scenario: verify user can create an event
+
+  Background:
     Given user opens website
     When user clicks on loginLink
     Then verify user on login page
@@ -10,7 +11,9 @@ Feature: Event creation functionality
     And verify user is on homepage
     When user clicks on new event type button
     Then verify new event type page is displayed
-    When user choose the event type "event.type"
+
+  Scenario: verify user can create one-on-one event
+    When user choose the event type "eventType.one"
     And user clicks on next button
     And user enters event name "newEvent.name" and duration "newEvent.duration"
     And clicks on continue Button
@@ -18,16 +21,30 @@ Feature: Event creation functionality
     When user clicks on done button
     Then verify event "newEvent.name" and "newEvent.duration" is listed on home page
 
+  Scenario: verify user can create group event
+    When user choose the event type "eventType.group"
+    And user clicks on next button
+    And user enters event name "newEvent.name" and duration "newEvent.duration"
+    And clicks on continue Button
+    Then verify new Event is ready message is displayed
+    When user clicks on done button
+    Then verify event "newEvent.name" and "newEvent.duration" is listed on home page
 
+  Scenario: verify user can create one-on-one event
+    When user choose the event type "eventType.collective"
+    And user clicks on next button
+    And user enters event name "newEvent.name" and duration "newEvent.duration"
+    And clicks on continue Button
+    Then verify new Event is ready message is displayed
+    When user clicks on done button
+    Then verify event "newEvent.name" and "newEvent.duration" is listed on home page
 
-
-
-
-
-
-
-
-
-
-
+  Scenario: verify user can create one-on-one event
+    When user choose the event type "eventType.roundRobin"
+    And user clicks on next button
+    And user enters event name "newEvent.name" and duration "newEvent.duration"
+    And clicks on continue Button
+    Then verify new Event is ready message is displayed
+    When user clicks on done button
+    Then verify event "newEvent.name" and "newEvent.duration" is listed on home page
 
