@@ -99,4 +99,28 @@ public class ContactSteps {
     public void verifyContactWithNameAndEmailAsIsRemoved(String name, String email) {
         Assert.assertTrue(contactPage.isContactPresent(name, email));
     }
+
+    @When("user edits  {string} to {string} and {string} to {string}")
+    public void userEditsToAndTo(String oldName, String newName, String oldEmail, String newEmail) {
+
+    }
+
+    @Then("verify the contact {string} is successfully edited")
+    public void verifyTheContactIsSuccessfullyEdited(String newName) {
+        Assert.assertTrue(contactPage.isContactPresent(newName,ConfigReader.getConfigValue("contact.email")));
+    }
+
+    @When("user edits  {string} to {string} and {string} to {string} with email {string}")
+    public void userEditsToAndToWithEmail(String oldName, String newName, String oldPhone, String newPhone, String email) {
+
+        oldName = ConfigReader.getConfigValue(oldName);
+        oldPhone = ConfigReader.getConfigValue(oldPhone);
+        newName = ConfigReader.getConfigValue(newName);
+        newPhone = ConfigReader.getConfigValue(newPhone);
+        email =  ConfigReader.getConfigValue(email);
+        System.out.println(email);
+        System.out.println("in steps");
+        contactPage.editSpecifiedContact(oldName, oldPhone,newName, newPhone,email);
+    }
+
 }

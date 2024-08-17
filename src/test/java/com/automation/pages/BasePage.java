@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
-import java.util.Set;
 
 public class BasePage {
     WebDriver driver;
@@ -34,7 +33,7 @@ public class BasePage {
         }
     }
 
-    public void isElementVisible(WebElement element) {
+    public void waitUntilElementVisible(WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
