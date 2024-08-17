@@ -39,10 +39,6 @@ Feature: Event creation functionality
     And clicks on send invitation
     Then verify invitations are sent
 
-#    Then verify new Event is ready message is displayed
-#    When user clicks on done button
-#    Then verify event "newEvent.name" and "newEvent.duration" is listed on home page
-
   Scenario: verify user can create one-on-one event
     When user choose the event type "eventType.roundRobin"
     And user clicks on next button
