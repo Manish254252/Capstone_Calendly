@@ -1,9 +1,14 @@
 package com.automation.pages;
 
+import io.cucumber.java.fi.Ja;
 import org.openqa.selenium.By;
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
 
 public class ContactPage extends BasePage {
 
@@ -41,6 +46,17 @@ public class ContactPage extends BasePage {
     @FindBy(id = "contact_profile_close_button")
     WebElement contact_profile_close_button;
 
+    String nameAndEmail_XPATH = "(//tr[@class='r15404cu'])[%s]/td[%s]//div[text()]";
+    String actions_XPATH = "(//tr[@class='r15404cu'])[%s]/td[6]//button[@aria-label='Contact Actions Button']";
+
+    @FindBy(xpath = "//tr[@class='r15404cu']")
+    List<WebElement> rows;
+
+    @FindBy(xpath = "//div[text()='Remove']")
+    WebElement removeBtn;
+
+    @FindBy(xpath = "//button//span[text()='Remove']")
+    WebElement removeConfirmationBtn;
 
     public void clickOnContactSection() {
         contactsSection.click();
@@ -75,7 +91,7 @@ public class ContactPage extends BasePage {
     }
 
     public void enterTimeZone(String data) {
-       WebElement timeZone =  driver.findElement(By.xpath(String.format(timezone_XPATH,data)));
+        WebElement timeZone = driver.findElement(By.xpath(String.format(timezone_XPATH, data)));
         searchBarForTimeZone.sendKeys(data);
         timeZone.click();
 
@@ -93,5 +109,47 @@ public class ContactPage extends BasePage {
     public boolean isContactSaved(String contactName) {
         clickOnContact_profile_close_button();
         return contactNameAfterSave.getText().contains(contactName);
+    }
+
+    public void removesSpecifiedContact(String name, String email) {
+        int n = rows.size();
+        for (int i = 1; i <= n; i++) {
+            String details = "";
+            List<WebElement> detailsList = driver.findElements(By.xpath(String.format(nameAndEmail_XPATH, i, 2)));
+            for (WebElement x : detailsList) {
+                details += x.getText();
+
+            }
+
+            if (details.contains(name) && details.contains(email)) {
+                WebElement action = driver.findElement(By.xpath(String.format(actions_XPATH, i)));
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()", action);
+                js.executeScript("arguments[0].click()", removeBtn);
+                js.executeScript("arguments[0].click()", removeConfirmationBtn);
+
+            }
+
+        }
+
+    }
+
+    public Boolean isContactPresent(String name, String email) {
+        int n = rows.size();
+        for (int i = 1; i <= n; i++) {
+            String details = "";
+            List<WebElement> detailsList = driver.findElements(By.xpath(String.format(nameAndEmail_XPATH, i, 2)));
+            for (WebElement x : detailsList) {
+                details += x.getText();
+
+            }
+
+            if (details.contains(name) && details.contains(email)) {
+                return false;
+
+            }
+
+        }
+        return true;
     }
 }

@@ -88,4 +88,15 @@ public class ContactSteps {
     }
 
 
+    @When("user clicks on remove button of {string} with email as {string}")
+    public void userClicksOnRemoveButtonOf(String name,String email) {
+        contactPage.removesSpecifiedContact(ConfigReader.getConfigValue(name),ConfigReader.getConfigValue(email));
+    }
+
+
+
+    @Then("Verify contact with name {string} and  email as {string} is removed")
+    public void verifyContactWithNameAndEmailAsIsRemoved(String name, String email) {
+        Assert.assertTrue(contactPage.isContactPresent(name, email));
+    }
 }
