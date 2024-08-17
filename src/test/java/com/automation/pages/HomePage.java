@@ -20,14 +20,15 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//div[@data-component='sortable']//p")
     List<WebElement> eventDurationList;
 
-    @FindBy(xpath = "//div[@data-component='sortable']//button[@aria-expanded]")
-    List<WebElement> noOfEvents;
 
     @FindBy(xpath = "//div[@data-component='sortable']//h2/ancestor::div[@data-component='event-type-card-list']//button[@aria-expanded]")
     List<WebElement> settingOptions;
 
     @FindBy(xpath = "//button/span[text()='Yes']")
     WebElement deleteConfirmBtn;
+
+    static int noOfEventsBeforeDeletion;
+    static int noOfEventsAfterDeletion;
 
     public void clickOnNewEventTypeButton() {
         newEventTypeButton.click();
@@ -62,16 +63,20 @@ public class HomePage extends BasePage {
     }
 
     public void deleteEventsOfName(String eventName) {
-        boolean eventsDeleted = true;
-        while (eventsDeleted) {
+
+        boolean eventsDeleted = false;
+        while (!eventsDeleted) {
             List<WebElement> eventNamesList = driver.findElements(By.xpath("//div[@data-component='sortable']//h2"));
             List<WebElement> settingOptions = driver.findElements(By.xpath("//div[@data-component='sortable']//h2/ancestor::div[@data-component='event-type-card-list']//button[@aria-expanded]"));
+            noOfEventsBeforeDeletion = eventNamesList.size();
 
             if (eventNamesList.size() != settingOptions.size()) {
                 continue;
             }
-            eventsDeleted = false;
+
+
             for (int i = 0; i < eventNamesList.size(); i++) {
+
                 try {
                     WebElement eventNameElement = eventNamesList.get(i);
                     WebElement settingOptionElement = settingOptions.get(i);
@@ -81,11 +86,13 @@ public class HomePage extends BasePage {
                         WebElement deleteButton = settingOptionElement.findElement(By.xpath("//div[@data-component='event-type-card-list']//button[@aria-expanded]/following-sibling::div//button/div[text()='Delete']"));
                         deleteButton.click();
                         deleteConfirmBtn.click();
+                        actions.pause(2000).build().perform();
                         eventsDeleted = true;
-                        break; // Exit loop to re-fetch elements since the DOM has changed
+                        System.out.println(eventNamesList.size());
+                        break;
                     }
                 } catch (Exception e) {
-                    // If an element becomes stale, re-fetch elements and retry
+
                     eventsDeleted = true;
                     break;
                 }
@@ -94,12 +101,9 @@ public class HomePage extends BasePage {
     }
 
     public boolean areEventsDeleted(String eventName) {
-        for(WebElement event: eventNamesList){
-            System.out.println("Event Name: "+ event.getText());
-            if(event.getText().equals(eventName)){
-                return false;
-            }
-        }
-        return true;
+        List<WebElement> eventNamesList = driver.findElements(By.xpath("//div[@data-component='sortable']//h2"));
+        noOfEventsAfterDeletion = eventNamesList.size();
+        return noOfEventsAfterDeletion < noOfEventsBeforeDeletion;
+
     }
 }
