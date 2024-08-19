@@ -1,12 +1,10 @@
 package com.automation.pages;
-
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class HolidaysPage extends BasePage{
+public class HolidaysPage extends BasePage {
 
     @FindBy(xpath = "//div/button/span[text()='Change']")
     WebElement changeButton;
@@ -43,8 +41,8 @@ public class HolidaysPage extends BasePage{
     }
 
     public void clickOnCountry(String country) {
-        for(WebElement countryEle : countriesList){
-            if(countryEle.getText().equals(country)){
+        for (WebElement countryEle : countriesList) {
+            if (countryEle.getText().equals(country)) {
                 countryEle.click();
                 break;
             }
@@ -60,8 +58,8 @@ public class HolidaysPage extends BasePage{
     }
 
     public void uncheckFirstTwoHolidays() {
-        for(int i = 0; i < holidaysCheckButtons.size(); i++){
-            if(i < 2){
+        for (int i = 0; i < holidaysCheckButtons.size(); i++) {
+            if (i < 2) {
                 driver.navigate().refresh();
                 holidaysCheckButtons.get(i).click();
             } else {

@@ -1,10 +1,6 @@
 package com.automation.pages;
-
-import io.cucumber.java.fi.Ja;
 import org.openqa.selenium.By;
-
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -32,7 +28,6 @@ public class ContactPage extends BasePage {
     String timezone_XPATH = "//div[text()='%s']";
     @FindBy(xpath = "//div[text()='India Standard Time']")
     WebElement indianStandardTime;
-
 
     @FindBy(xpath = "(//form//input)[4]")
     WebElement phoneNumber;
@@ -74,7 +69,7 @@ public class ContactPage extends BasePage {
     }
 
     public void clickOnIndianTimeZone() {
-//        indianStandardTime.click();
+        // indianStandardTime.click();
     }
 
     public void clickOnSaveContactBtn() {
@@ -157,7 +152,6 @@ public class ContactPage extends BasePage {
                 enterFirstName(newName);
                 enterPhoneNumber(newPhone);
 
-
             }
 
         }
@@ -182,6 +176,5 @@ public class ContactPage extends BasePage {
         }
         return false;
     }
-
 
 }
