@@ -1,6 +1,6 @@
-Feature: Logout Functionality
+Feature: Update Profile Functionality
 
-  Scenario: verify user can logout
+  Scenario: Verify the profile image, name and welcome message is updated
 
     Given user opens website
     When user clicks on loginLink
@@ -13,5 +13,8 @@ Feature: Logout Functionality
     When user clicks on profile icon
     And clicks on profile link
     Then verify profile page is displayed
-    When user clicks on logout link
-    Then verify is on landing page
+    When user selects profile as "cat.profileImg"
+    And user updates name as "updated.name"
+    And user updates welcome message as "updated.msg"
+    When user clicks on save changes button
+    Then verify changes have been saved

@@ -1,6 +1,8 @@
 package com.automation.steps;
 
 import com.automation.pages.ProfilePage;
+import com.automation.utils.ConfigReader;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
@@ -12,11 +14,6 @@ public class ProfilePageSteps {
     @Then("verify profile page is displayed")
     public void verifyProfilePageIsDisplayed() {
         Assert.assertTrue(profilePage.isProfilePageDisplayed());
-    }
-
-    @When("user clicks on upload profile")
-    public void userClicksOnUploadProfile() {
-        profilePage.clickOnUploadBtn();
     }
 
     @Then("verify profile is changed")
@@ -37,5 +34,20 @@ public class ProfilePageSteps {
     @When("user clicks on logout link")
     public void userClicksOnLogoutLink() {
         profilePage.clickOnLogoutLink();
+    }
+
+    @When("user selects profile as {string}")
+    public void userSelectsProfileAs(String profileImgPath) {
+        profilePage.clickOnUploadBtn(ConfigReader.getConfigValue(profileImgPath));
+    }
+
+    @And("user updates name as {string}")
+    public void userUpdatesNameAs(String updatedName) {
+        profilePage.enterUpdateName(ConfigReader.getConfigValue(updatedName));
+    }
+
+    @And("user updates welcome message as {string}")
+    public void userUpdatesWelcomeMessageAs(String updatedMsg) {
+        profilePage.enterUpdateMsg(ConfigReader.getConfigValue(updatedMsg));
     }
 }
