@@ -2,7 +2,9 @@ package com.automation.steps;
 
 import com.automation.pages.LandingPage;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
 
 public class LandingSteps {
 
@@ -15,5 +17,10 @@ public class LandingSteps {
     @When("user clicks on loginLink")
     public void userClicksOnLoginLink() {
         landingPage.clickOnLoginLink();
+    }
+
+    @Then("verify is on landing page")
+    public void verifyIsOnLandingPage() {
+        Assert.assertTrue(landingPage.isLandingPageDisplayed());
     }
 }

@@ -61,4 +61,17 @@ public class HomeSteps {
     public void userClicksOnMeetingsLink() {
         homePage.clickOnMeetingLink();
     }
+
+
+    @When("user clicks on profile icon")
+    public void userClicksOnProfileIcon() {
+        homePage.clickOnProfileIcon();
+    }
+
+    @And("clicks on profile link")
+    public void clicksOnProfileLink() {
+        homePage.clickOnProfileLink();
+    }
+
+
 }

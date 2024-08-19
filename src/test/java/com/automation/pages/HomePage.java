@@ -32,9 +32,14 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//div[@data-calendly-label='left-nav-main-items-container']//span[contains(text(),'Meetings')]")
     WebElement meetingsLink;
 
+    @FindBy(id = "main-user-menu-toggle")
+    WebElement profileIconBtn;
 
     @FindBy(xpath = "//button/span[text()='Yes']")
     WebElement deleteConfirmBtn;
+
+    @FindBy(xpath = "//div[@id='main-user-menu']//div/a/div[contains(text(),'Profile')]")
+    WebElement profileLink;
 
     static int noOfEventsBeforeDeletion;
     static int noOfEventsAfterDeletion;
@@ -131,5 +136,13 @@ public class HomePage extends BasePage {
 
     public void clickOnMeetingLink() {
         meetingsLink.click();
+    }
+
+    public void clickOnProfileIcon() {
+        profileIconBtn.click();
+    }
+
+    public void clickOnProfileLink() {
+        profileLink.click();
     }
 }

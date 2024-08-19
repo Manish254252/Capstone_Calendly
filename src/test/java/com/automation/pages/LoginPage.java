@@ -54,6 +54,5 @@ public class LoginPage extends BasePage {
 
     public void clickOnContinue() {
         continueBtn.click();
-
     }
 }

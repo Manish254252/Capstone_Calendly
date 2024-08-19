@@ -15,4 +15,8 @@ public class LandingPage extends BasePage {
     {
         loginLink.click();
     }
+
+    public boolean isLandingPageDisplayed() {
+        return loginLink.isDisplayed();
+    }
 }
