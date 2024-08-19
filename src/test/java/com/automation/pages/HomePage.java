@@ -26,6 +26,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//div[@data-component='sortable']//h2/ancestor::div[@data-component='event-type-card-list']//button[@aria-expanded]")
     List<WebElement> settingOptions;
 
+    @FindBy(xpath = "//div[@data-calendly-label='left-nav-main-items-container']//span[contains(text(),'Availability')]")
+    WebElement availabilityLink;
+
     @FindBy(xpath = "//button/span[text()='Yes']")
     WebElement deleteConfirmBtn;
 
@@ -112,5 +115,9 @@ public class HomePage extends BasePage {
                 break;
             }
         }
+    }
+
+    public void clickOnAvailabilityButton() {
+        availabilityLink.click();
     }
 }
