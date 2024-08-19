@@ -39,13 +39,13 @@ public class ContactSteps {
 
     @When("user enters {string} as the email for the contact")
     public void user_enters_as_the_email_for_the_contact(String string) {
-        if (string.equals("contact.email"))
-        {
-            contactPage.enterEmail(ConfigReader.getConfigValue(string));
-
-        }else {
+//        if (string.equals("contact.email"))
+//        {
+//            contactPage.enterEmail(ConfigReader.getConfigValue(string));
+//
+//        }else {
             contactPage.enterEmail(string);
-        }
+//        }
     }
 
     @When("user selects {string} as the timezone for the contact")

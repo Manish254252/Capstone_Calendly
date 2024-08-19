@@ -17,7 +17,8 @@ public class InvitePageSteps {
 
     @And("user enters invite emails {string}")
     public void userEntersInviteEmails(String email) {
-        invitePage.enterInvitesEmails(ConfigReader.getConfigValue(email));
+
+        invitePage.enterInvitesEmails(email);
     }
 
     @And("clicks on set roles")

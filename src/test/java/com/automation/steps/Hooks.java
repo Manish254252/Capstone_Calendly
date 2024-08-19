@@ -15,17 +15,15 @@ import org.openqa.selenium.interactions.Actions;
 
 
 public class Hooks {
-    Actions actions;
+
     WebDriver driver;
-    JavascriptExecutor js;
+
 
     @Before
     public void setUp(Scenario scenario) {
         ConfigReader.initConfig();
         DriverManager.createDriver();
         driver = DriverManager.getDriver();
-        actions = new Actions(driver);
-        js = (JavascriptExecutor)driver;
         ReportManager.initReport(scenario);
     }
 
