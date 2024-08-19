@@ -107,7 +107,8 @@ public class ContactSteps {
 
     @Then("verify the contact {string} is successfully edited")
     public void verifyTheContactIsSuccessfullyEdited(String newName) {
-        Assert.assertTrue(contactPage.isContactPresent(newName,ConfigReader.getConfigValue("contact.email")));
+
+        Assert.assertTrue(contactPage.isContactPresent(ConfigReader.getConfigValue(newName),ConfigReader.getConfigValue("contact.email")));
     }
 
     @When("user edits  {string} to {string} and {string} to {string} with email {string}")
@@ -118,8 +119,6 @@ public class ContactSteps {
         newName = ConfigReader.getConfigValue(newName);
         newPhone = ConfigReader.getConfigValue(newPhone);
         email =  ConfigReader.getConfigValue(email);
-        System.out.println(email);
-        System.out.println("in steps");
         contactPage.editSpecifiedContact(oldName, oldPhone,newName, newPhone,email);
     }
 
