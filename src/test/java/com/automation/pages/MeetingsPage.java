@@ -22,7 +22,7 @@ public class MeetingsPage extends BasePage{
     }
 
     public boolean isFileDownloaded() {
-        String filePath = "C:\\Users\\280707\\Downloads\\events-export.zip";
+        String filePath = "C:\\Users\\280708\\Downloads\\events-export.zip";
 
         File file = new File(filePath);
 

@@ -51,11 +51,15 @@ public class HomePage extends BasePage {
         boolean isEventPresent = false;
         boolean isDurationPresent = false;
 
-        if (isPresent(eventNamesList)) {
+
             for (WebElement event : eventNamesList) {
-                if (event.getText().contains(eventName)) {
-                    isEventPresent = true;
-                    break;
+
+                if(isPresent(event))
+                {
+                    if (event.getText().contains(eventName)) {
+                        isEventPresent = true;
+                        break;
+                    }
                 }
             }
             if (eventDuration.equals("60 min")) {
@@ -67,7 +71,7 @@ public class HomePage extends BasePage {
                     break;
                 }
             }
-        }
+
         return isEventPresent && isDurationPresent;
     }
 
@@ -113,8 +117,8 @@ public class HomePage extends BasePage {
     }
 
     public void clickOnBookingEventLink(String eventName, String eventDuration) {
-        for(int i = 0; i < eventBookingPageLink.size(); i++){
-            if(eventNamesList.get(i).getText().equals(eventName) && eventDurationList.get(i).getText().contains(eventDuration)){
+        for (int i = 0; i < eventBookingPageLink.size(); i++) {
+            if (eventNamesList.get(i).getText().equals(eventName) && eventDurationList.get(i).getText().contains(eventDuration)) {
                 eventBookingPageLink.get(i).click();
                 break;
             }

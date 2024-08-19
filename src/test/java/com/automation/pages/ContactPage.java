@@ -87,7 +87,8 @@ public class ContactPage extends BasePage {
     }
 
     public void enterEmail(String data) {
-        email.sendKeys(data);
+
+        email.sendKeys(getRandomEmail());
     }
 
     public void enterTimeZone(String data) {
