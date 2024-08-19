@@ -41,9 +41,7 @@ public class LoginSteps {
 
     @Then("user clicks on continue button")
     public void userClicksOnContinueButton() {
-
         loginPage.clickOnContinue();
-        System.out.println("clicked on continue");
     }
 
 

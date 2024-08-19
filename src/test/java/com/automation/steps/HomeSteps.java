@@ -57,4 +57,8 @@ public class HomeSteps {
         homePage.clickOnAvailabilityButton();
     }
 
+    @When("user clicks on meetings link")
+    public void userClicksOnMeetingsLink() {
+        homePage.clickOnMeetingLink();
+    }
 }
