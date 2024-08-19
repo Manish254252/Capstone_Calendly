@@ -1,6 +1,6 @@
 Feature: Event creation functionality
 
-  Background:
+  Background: Login steps
     Given user opens website
     When user clicks on loginLink
     Then verify user on login page
