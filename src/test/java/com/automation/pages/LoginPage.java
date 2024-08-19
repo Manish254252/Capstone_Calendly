@@ -17,6 +17,9 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//button/span[text()='Continue']")
     WebElement continueBtn;
 
+    @FindBy(xpath = "//form/div/div/div[text()]")
+    WebElement noSuchAccount;
+
 
 
 
@@ -37,8 +40,13 @@ public class LoginPage extends BasePage {
         return loginBtn.isDisplayed();
     }
 
+    public boolean isNoSuchAccountDisplayed() {
+        return noSuchAccount.isDisplayed();
+    }
+
 
     public void clickOnContinue() {
         continueBtn.click();
+        System.out.println("clicked continue ");
     }
 }
