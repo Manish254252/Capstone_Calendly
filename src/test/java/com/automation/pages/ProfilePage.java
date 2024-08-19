@@ -26,13 +26,19 @@ public class ProfilePage extends BasePage{
     @FindBy(xpath = "//a/span[contains(text(),'Logout')]")
     WebElement logoutLink;
 
+    @FindBy(xpath = "//input[@name='name']")
+    WebElement nameInput;
+
+    @FindBy(xpath = "//textarea[@type='textarea']")
+    WebElement textareaInput;
+
     public boolean isProfilePageDisplayed() {
         return profilePageTitle.getText().equals("Profile");
     }
 
 
-    public void clickOnUploadBtn() {
-        uploadPictureBtn.sendKeys(System.getProperty("user.dir")+"\\src\\test\\resources\\Images\\g1.jpg");
+    public void clickOnUploadBtn(String path) {
+        uploadPictureBtn.sendKeys(System.getProperty("user.dir")+ path);
         applyBtn.click();
     }
 
@@ -50,5 +56,15 @@ public class ProfilePage extends BasePage{
 
     public void clickOnLogoutLink() {
         logoutLink.click();
+    }
+
+    public void enterUpdateName(String updatedName) {
+        nameInput.clear();
+        nameInput.sendKeys(updatedName);
+    }
+
+    public void enterUpdateMsg(String updatedMsg) {
+        textareaInput.clear();
+        textareaInput.sendKeys(updatedMsg);
     }
 }

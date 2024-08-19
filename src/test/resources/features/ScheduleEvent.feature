@@ -19,4 +19,3 @@ Feature: Schedule an event functionality
     And user enters event name "eventSchedule.name" email "eventSchedule.email" and "eventSchedule.Msg"
     And clicks on schedule button
     Then verify event is scheduled
-

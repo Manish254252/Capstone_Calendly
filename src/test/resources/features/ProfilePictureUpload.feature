@@ -13,7 +13,7 @@ Feature: Profile Picture upload
     When user clicks on profile icon
     And clicks on profile link
     Then verify profile page is displayed
-    When user clicks on upload profile
+    When user selects profile as "gorilla.profileImg"
     Then verify profile is changed
     When user clicks on save changes button
     Then verify changes have been saved
