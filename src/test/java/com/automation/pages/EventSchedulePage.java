@@ -58,7 +58,7 @@ public class EventSchedulePage extends BasePage{
 
         while (!monthHeader.getText().equals(monthYear)){
             nextMonthButton.click();
-            isElementVisible(monthHeader);
+            waitUntilElementVisible(monthHeader);
 //            try {
 //                Thread.sleep(2000);
 //            } catch (InterruptedException e) {

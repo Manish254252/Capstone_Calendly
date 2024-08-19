@@ -52,6 +52,9 @@ public class ContactPage extends BasePage {
     @FindBy(xpath = "//tr[@class='r15404cu']")
     List<WebElement> rows;
 
+    @FindBy(xpath = "//div[text()='Edit']")
+    WebElement editBtn;
+
     @FindBy(xpath = "//div[text()='Remove']")
     WebElement removeBtn;
 
@@ -83,6 +86,8 @@ public class ContactPage extends BasePage {
     }
 
     public void enterFirstName(String data) {
+        firstName.click();
+        firstName.clear();
         firstName.sendKeys(data);
     }
 
@@ -99,6 +104,7 @@ public class ContactPage extends BasePage {
 
     public void enterPhoneNumber(String data) {
         phoneNumber.click();
+        phoneNumber.clear();
         phoneNumber.sendKeys(data);
     }
 
@@ -134,6 +140,30 @@ public class ContactPage extends BasePage {
 
     }
 
+    public void editSpecifiedContact(String oldName, String oldPhone, String newName, String newPhone, String email) {
+        int n = rows.size();
+        for (int i = 1; i <= n; i++) {
+            String details = "";
+            List<WebElement> detailsList = driver.findElements(By.xpath(String.format(nameAndEmail_XPATH, i, 2)));
+            for (WebElement x : detailsList) {
+                details += x.getText();
+
+            }
+            if (details.contains(email)) {
+                WebElement action = driver.findElement(By.xpath(String.format(actions_XPATH, i)));
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("arguments[0].click()", action);
+                js.executeScript("arguments[0].click()", editBtn);
+                enterFirstName(newName);
+                enterPhoneNumber(newPhone);
+
+
+            }
+
+        }
+
+    }
+
     public Boolean isContactPresent(String name, String email) {
         int n = rows.size();
         for (int i = 1; i <= n; i++) {
@@ -145,11 +175,13 @@ public class ContactPage extends BasePage {
             }
 
             if (details.contains(name) && details.contains(email)) {
-                return false;
+                return true;
 
             }
 
         }
-        return true;
+        return false;
     }
+
+
 }
