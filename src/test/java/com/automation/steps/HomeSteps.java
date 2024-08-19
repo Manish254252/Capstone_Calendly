@@ -51,4 +51,10 @@ public class HomeSteps {
         homePage.switchTab();
     }
 
+
+    @When("user clicks on availability")
+    public void user_clicks_on_availability() {
+        homePage.clickOnAvailabilityButton();
+    }
+
 }
