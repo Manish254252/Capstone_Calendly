@@ -23,6 +23,9 @@ public class ProfilePage extends BasePage{
     @FindBy(xpath = "//div[@aria-live='polite']")
     WebElement savedMsg;
 
+    @FindBy(xpath = "//a/span[contains(text(),'Logout')]")
+    WebElement logoutLink;
+
     public boolean isProfilePageDisplayed() {
         return profilePageTitle.getText().equals("Profile");
     }
@@ -43,5 +46,9 @@ public class ProfilePage extends BasePage{
 
     public boolean isChangesSaved() {
         return savedMsg.getText().equals("Your settings have been saved!");
+    }
+
+    public void clickOnLogoutLink() {
+        logoutLink.click();
     }
 }

@@ -33,4 +33,9 @@ public class ProfilePageSteps {
     public void verifyChangesHaveBeenSaved() {
         Assert.assertTrue(profilePage.isChangesSaved());
     }
+
+    @When("user clicks on logout link")
+    public void userClicksOnLogoutLink() {
+        profilePage.clickOnLogoutLink();
+    }
 }
