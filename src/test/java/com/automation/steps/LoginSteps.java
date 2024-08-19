@@ -18,7 +18,11 @@ public class LoginSteps {
 
     @When("user enters email as {string}")
     public void userEntersEmailAs(String email) {
-    loginPage.enterEmail(ConfigReader.getConfigValue(email));
+
+        if(email.equals("userEmail"))
+            loginPage.enterEmail(ConfigReader.getConfigValue(email));
+        else
+            loginPage.enterEmail(email);
     }
 
     @And("user clicks on loginBtn")
@@ -28,13 +32,24 @@ public class LoginSteps {
 
     @And("user enters password as {string}")
     public void userEntersPasswordAs(String password) {
-        loginPage.enterPassword(ConfigReader.getConfigValue(password));
+
+        if(password.equals("password"))
+            loginPage.enterPassword(ConfigReader.getConfigValue(password));
+        else
+            loginPage.enterPassword(password);
     }
 
     @Then("user clicks on continue button")
     public void userClicksOnContinueButton() {
+
         loginPage.clickOnContinue();
+        System.out.println("clicked on continue");
     }
 
 
+    @And("verify user is on not able to login")
+    public void verifyUserIsOnNotAbleToLogin() {
+
+        Assert.assertTrue(loginPage.isNoSuchAccountDisplayed());
+    }
 }
