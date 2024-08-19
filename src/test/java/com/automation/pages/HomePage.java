@@ -29,6 +29,10 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//div[@data-calendly-label='left-nav-main-items-container']//span[contains(text(),'Availability')]")
     WebElement availabilityLink;
 
+    @FindBy(xpath = "//div[@data-calendly-label='left-nav-main-items-container']//span[contains(text(),'Meetings')]")
+    WebElement meetingsLink;
+
+
     @FindBy(xpath = "//button/span[text()='Yes']")
     WebElement deleteConfirmBtn;
 
@@ -119,5 +123,9 @@ public class HomePage extends BasePage {
 
     public void clickOnAvailabilityButton() {
         availabilityLink.click();
+    }
+
+    public void clickOnMeetingLink() {
+        meetingsLink.click();
     }
 }

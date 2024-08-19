@@ -69,5 +69,4 @@ public class HolidaysPage extends BasePage{
             }
         }
     }
-
 }
