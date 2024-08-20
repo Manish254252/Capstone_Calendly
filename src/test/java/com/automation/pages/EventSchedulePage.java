@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class EventSchedulePage extends BasePage{
+public class EventSchedulePage extends BasePage {
 
     @FindBy(xpath = "//div[@data-component='spotpicker']/h2")
     WebElement selectDateTitle;
@@ -53,10 +53,10 @@ public class EventSchedulePage extends BasePage{
 
 
     public void selectDate(String stringDate) {
-        String monthYear = stringDate.substring(stringDate.indexOf(" ")+1);
+        String monthYear = stringDate.substring(stringDate.indexOf(" ") + 1);
         String date = stringDate.substring(0, stringDate.indexOf(" "));
 
-        while (!monthHeader.getText().equals(monthYear)){
+        while (!monthHeader.getText().equals(monthYear)) {
             nextMonthButton.click();
             waitUntilElementVisible(monthHeader);
 //            try {
@@ -65,8 +65,8 @@ public class EventSchedulePage extends BasePage{
 //                throw new RuntimeException(e);
 //            }
         }
-        for(WebElement dateEle : availableDates){
-            if(dateEle.getText().equals(date)){
+        for (WebElement dateEle : availableDates) {
+            if (dateEle.getText().equals(date)) {
                 dateEle.click();
                 break;
             }
@@ -74,16 +74,18 @@ public class EventSchedulePage extends BasePage{
     }
 
     public void selectTime(String time) {
-        for(WebElement timeEle : timeButtons){
-            if(timeEle.getText().equals(time)){
-                timeEle.click();
-                break;
+        if (isPresent(timeListDiv)) {
+            for (WebElement timeEle : timeButtons) {
+                if (timeEle.getText().equals(time)) {
+                    timeEle.click();
+                    break;
+                }
             }
+            nextBtn.click();
         }
-        nextBtn.click();
     }
 
-    public void enterEventNameAndMsg(String name, String email ,String msg) {
+    public void enterEventNameAndMsg(String name, String email, String msg) {
         nameInput.sendKeys(name);
         emailInput.sendKeys(email);
         textareaInput.sendKeys(msg);

@@ -38,7 +38,7 @@ public class HomeSteps {
 
     @Then("verify events are deleted of name {string}")
     public void verifyEventsAreDeletedOfName(String eventName) {
-        Assert.assertTrue(homePage.areEventsDeleted(ConfigReader.getConfigValue(eventName)));
+        Assert.assertTrue(homePage.isEventDeleted(ConfigReader.getConfigValue(eventName)));
     }
 
     @When("user clicks on event of name {string} and duration {string}")
@@ -56,5 +56,22 @@ public class HomeSteps {
     public void user_clicks_on_availability() {
         homePage.clickOnAvailabilityButton();
     }
+
+    @When("user clicks on meetings link")
+    public void userClicksOnMeetingsLink() {
+        homePage.clickOnMeetingLink();
+    }
+
+
+    @When("user clicks on profile icon")
+    public void userClicksOnProfileIcon() {
+        homePage.clickOnProfileIcon();
+    }
+
+    @And("clicks on profile link")
+    public void clicksOnProfileLink() {
+        homePage.clickOnProfileLink();
+    }
+
 
 }

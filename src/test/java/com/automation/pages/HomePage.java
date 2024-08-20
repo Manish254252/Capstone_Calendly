@@ -29,8 +29,17 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//div[@data-calendly-label='left-nav-main-items-container']//span[contains(text(),'Availability')]")
     WebElement availabilityLink;
 
+    @FindBy(xpath = "//div[@data-calendly-label='left-nav-main-items-container']//span[contains(text(),'Meetings')]")
+    WebElement meetingsLink;
+
+    @FindBy(id = "main-user-menu-toggle")
+    WebElement profileIconBtn;
+
     @FindBy(xpath = "//button/span[text()='Yes']")
     WebElement deleteConfirmBtn;
+
+    @FindBy(xpath = "//div[@id='main-user-menu']//div/a/div[contains(text(),'Profile')]")
+    WebElement profileLink;
 
     static int noOfEventsBeforeDeletion;
     static int noOfEventsAfterDeletion;
@@ -47,11 +56,15 @@ public class HomePage extends BasePage {
         boolean isEventPresent = false;
         boolean isDurationPresent = false;
 
-        if (isPresent(eventNamesList)) {
+
             for (WebElement event : eventNamesList) {
-                if (event.getText().contains(eventName)) {
-                    isEventPresent = true;
-                    break;
+
+                if(isPresent(event))
+                {
+                    if (event.getText().contains(eventName)) {
+                        isEventPresent = true;
+                        break;
+                    }
                 }
             }
             if (eventDuration.equals("60 min")) {
@@ -63,13 +76,13 @@ public class HomePage extends BasePage {
                     break;
                 }
             }
-        }
+
         return isEventPresent && isDurationPresent;
     }
 
+        boolean eventsDeleted = false;
     public void deleteEventsOfName(String eventName) {
 
-        boolean eventsDeleted = false;
         while (!eventsDeleted) {
             List<WebElement> eventNamesList = driver.findElements(By.xpath("//div[@data-component='sortable']//h2"));
             List<WebElement> settingOptions = driver.findElements(By.xpath("//div[@data-component='sortable']//h2/ancestor::div[@data-component='event-type-card-list']//button[@aria-expanded]"));
@@ -88,9 +101,9 @@ public class HomePage extends BasePage {
                         WebElement deleteButton = settingOptionElement.findElement(By.xpath("//div[@data-component='event-type-card-list']//button[@aria-expanded]/following-sibling::div//button/div[text()='Delete']"));
                         deleteButton.click();
                         deleteConfirmBtn.click();
-                        actions.pause(2000).build().perform();
+                        actions.pause(5000).build().perform();
                         eventsDeleted = true;
-                        System.out.println(eventNamesList.size());
+
                         break;
                     }
                 } catch (Exception e) {
@@ -101,16 +114,15 @@ public class HomePage extends BasePage {
         }
     }
 
-    public boolean areEventsDeleted(String eventName) {
-        List<WebElement> eventNamesList = driver.findElements(By.xpath("//div[@data-component='sortable']//h2"));
-        noOfEventsAfterDeletion = eventNamesList.size();
-        return noOfEventsAfterDeletion < noOfEventsBeforeDeletion;
+    public boolean isEventDeleted(String eventName) {
+
+        return eventsDeleted;
 
     }
 
     public void clickOnBookingEventLink(String eventName, String eventDuration) {
-        for(int i = 0; i < eventBookingPageLink.size(); i++){
-            if(eventNamesList.get(i).getText().equals(eventName) && eventDurationList.get(i).getText().contains(eventDuration)){
+        for (int i = 0; i < eventBookingPageLink.size(); i++) {
+            if (eventNamesList.get(i).getText().equals(eventName) && eventDurationList.get(i).getText().contains(eventDuration)) {
                 eventBookingPageLink.get(i).click();
                 break;
             }
@@ -119,5 +131,17 @@ public class HomePage extends BasePage {
 
     public void clickOnAvailabilityButton() {
         availabilityLink.click();
+    }
+
+    public void clickOnMeetingLink() {
+        meetingsLink.click();
+    }
+
+    public void clickOnProfileIcon() {
+        profileIconBtn.click();
+    }
+
+    public void clickOnProfileLink() {
+        profileLink.click();
     }
 }

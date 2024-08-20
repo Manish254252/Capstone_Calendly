@@ -17,6 +17,12 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//button/span[text()='Continue']")
     WebElement continueBtn;
 
+    @FindBy(xpath = "//form/div/div/div[text()]")
+    WebElement noSuchAccount;
+
+    @FindBy(id = "onetrust-accept-btn-handler")
+    WebElement cookieAccept;
+
 
 
 
@@ -29,12 +35,16 @@ public class LoginPage extends BasePage {
     }
 
     public void clickOnLoginBtn() {
-        loginBtn.click();
+        click(loginBtn);
     }
 
 
     public boolean isLoginBtnDisplayed() {
         return loginBtn.isDisplayed();
+    }
+
+    public boolean isNoSuchAccountDisplayed() {
+        return noSuchAccount.isDisplayed();
     }
 
 

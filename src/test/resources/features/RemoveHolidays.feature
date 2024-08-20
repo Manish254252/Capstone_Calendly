@@ -23,6 +23,5 @@ Feature: Remove Holidays from the calender
 
     Examples:
       | country |
-
       | Germany |
       | Spain   |

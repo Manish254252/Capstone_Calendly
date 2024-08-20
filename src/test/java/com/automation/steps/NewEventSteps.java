@@ -28,6 +28,7 @@ public class NewEventSteps {
 
     @And("user enters event name {string} and duration {string}")
     public void userEntersEventNameAndDuration(String eventName, String duration) {
+
         newEventPage.enterEventNameAndDuration(ConfigReader.getConfigValue(eventName), ConfigReader.getConfigValue(duration));
     }
 
