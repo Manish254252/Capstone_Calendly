@@ -18,10 +18,10 @@ public class ConfigWriter {
             e.printStackTrace();
         }
         try (FileOutputStream out = new FileOutputStream(filePath)) {
-            // Set the key-value pair
+
             properties.setProperty(key, value);
 
-            // Save the properties to the specified file
+
             properties.store(out, "Updated properties file");
             System.out.println("Property " + key + " has been written to the file.");
         } catch (IOException e) {
@@ -29,13 +29,6 @@ public class ConfigWriter {
         }
     }
 
-    public static void main(String[] args) {
-        ConfigWriter writer = new ConfigWriter();
-        BasePage basePage = new BasePage();
-        String key = "invite.email";
-        String value = basePage.getRandomEmail();
 
-        writer.writeToPropertiesFile(key, value);
-    }
 }
 
