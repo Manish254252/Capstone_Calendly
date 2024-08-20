@@ -21,9 +21,9 @@ public class EventSchedulePageSteps {
         eventSchedulePage.selectDate(ConfigReader.getConfigValue(date));
     }
 
-    @And("user selects time {string}")
-    public void userSelectsTime(String time) {
-        eventSchedulePage.selectTime(ConfigReader.getConfigValue(time));
+    @And("user selects time")
+    public void userSelectsTime() {
+        eventSchedulePage.selectTime();
     }
 
     @And("user enters event name {string} and {string}")
