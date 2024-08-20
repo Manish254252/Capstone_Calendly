@@ -74,7 +74,7 @@ public class EventSchedulePage extends BasePage{
     }
 
     public void selectTime(String time) {
-        isPresent(timeButtons);
+        boolean timeButtonPresent = isPresent(timeButtons.get(0));
         for(WebElement timeEle : timeButtons){
             if(timeEle.getText().equals(time)){
                 timeEle.click();

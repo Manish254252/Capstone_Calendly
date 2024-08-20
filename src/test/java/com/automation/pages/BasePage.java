@@ -14,9 +14,9 @@ import java.util.Random;
 import java.util.Set;
 
 public class BasePage {
-   public WebDriver driver;
-   public WebDriverWait wait;
-   public Actions actions;
+    public WebDriver driver;
+    public WebDriverWait wait;
+    public Actions actions;
 
     public BasePage() {
         DriverManager.createDriver();
@@ -35,20 +35,19 @@ public class BasePage {
             return false;
         }
     }
-boolean isPresentWithoutWait(WebElement webElement)
-{
-    try {
-        setImplicitWait(0);
-        return webElement.isDisplayed();
-    }catch (Exception e)
-    {
-        return false;
-    }
-    finally {
-        setImplicitWait(40);
+
+    boolean isPresentWithoutWait(WebElement webElement) {
+        try {
+            setImplicitWait(0);
+            return webElement.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        } finally {
+            setImplicitWait(40);
+        }
+
     }
 
-}
     public void waitUntilElementVisible(WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
@@ -64,8 +63,8 @@ boolean isPresentWithoutWait(WebElement webElement)
         }
 
     }
-    public String getRandomEmail()
-    {
+
+    public String getRandomEmail() {
         String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         StringBuilder email = new StringBuilder();
 
@@ -83,8 +82,8 @@ boolean isPresentWithoutWait(WebElement webElement)
 
         return email.toString();
     }
-    public void setImplicitWait(int seconds)
-    {
+
+    public void setImplicitWait(int seconds) {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
     }
 }
