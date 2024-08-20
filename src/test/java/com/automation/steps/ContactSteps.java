@@ -97,7 +97,7 @@ public class ContactSteps {
 
     @Then("Verify contact with name {string} and  email as {string} is removed")
     public void verifyContactWithNameAndEmailAsIsRemoved(String name, String email) {
-        Assert.assertTrue(contactPage.isContactPresent(name, email));
+        Assert.assertFalse(contactPage.isContactPresent(ConfigReader.getConfigValue(name), ConfigReader.getConfigValue(email)));
     }
 
     @When("user edits  {string} to {string} and {string} to {string}")
@@ -108,7 +108,7 @@ public class ContactSteps {
     @Then("verify the contact {string} is successfully edited")
     public void verifyTheContactIsSuccessfullyEdited(String newName) {
 
-        Assert.assertTrue(contactPage.isContactPresent(ConfigReader.getConfigValue(newName),ConfigReader.getConfigValue("contact.email")));
+        Assert.assertTrue(contactPage.isContactPresent(ConfigReader.getConfigValue(newName),ConfigReader.getConfigValue("contact.email")),"contact does not exists");
     }
 
     @When("user edits  {string} to {string} and {string} to {string} with email {string}")

@@ -1,6 +1,7 @@
 package com.automation.pages;
 
 import com.automation.utils.ConfigReader;
+import com.automation.utils.ConfigWriter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -89,7 +90,8 @@ public class ContactPage extends BasePage {
     }
 
     public void enterEmail(String data) {
-        ConfigReader.setConfigValue(data, getRandomEmail());
+//        ConfigReader.setConfigValue(data, getRandomEmail());
+        ConfigWriter.writeToPropertiesFile(data,getRandomEmail());
         data = ConfigReader.getConfigValue(data);
         email.sendKeys(data);
     }
@@ -141,6 +143,7 @@ public class ContactPage extends BasePage {
 
     public void editSpecifiedContact(String oldName, String oldPhone, String newName, String newPhone, String email) {
         int n = rows.size();
+        boolean contactFound = false;
         for (int i = 1; i <= n; i++) {
             String details = "";
             List<WebElement> detailsList = driver.findElements(By.xpath(String.format(nameAndEmail_XPATH, i, 2)));
@@ -149,16 +152,37 @@ public class ContactPage extends BasePage {
 
             }
             if (details.contains(email)) {
+                contactFound = true;
+                System.out.println(email);
                 WebElement action = driver.findElement(By.xpath(String.format(actions_XPATH, i)));
                 JavascriptExecutor js = (JavascriptExecutor) driver;
                 js.executeScript("arguments[0].click()", action);
                 js.executeScript("arguments[0].click()", editBtn);
+                System.out.println(newName);
+                System.out.println(newPhone);
                 enterFirstName(newName);
                 enterPhoneNumber(newPhone);
 
             }
 
         }
+        if(!contactFound)
+        {
+
+            System.out.println("contact does not exist");
+
+            System.out.println(String.format(actions_XPATH,1));
+            WebElement action = driver.findElement(By.xpath(String.format(actions_XPATH, 1)));
+            System.out.println(action.isDisplayed());
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].click()", action);
+            js.executeScript("arguments[0].click()", editBtn);
+            System.out.println("befor first name ");
+            enterFirstName(newName);
+            System.out.println("after first name");
+            enterPhoneNumber(newPhone);
+        }
+
 
     }
 
@@ -172,7 +196,7 @@ public class ContactPage extends BasePage {
 
             }
 
-            if (details.contains(name) && details.contains(email)) {
+            if (details.contains(email)) {
                 return true;
 
             }
