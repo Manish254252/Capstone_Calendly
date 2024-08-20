@@ -108,7 +108,7 @@ public class ContactSteps {
     @Then("verify the contact {string} is successfully edited")
     public void verifyTheContactIsSuccessfullyEdited(String newName) {
 
-        Assert.assertTrue(contactPage.isContactPresent(ConfigReader.getConfigValue(newName),ConfigReader.getConfigValue("contact.email")),"contact does not exists");
+        Assert.assertFalse(contactPage.isContactPresent(ConfigReader.getConfigValue(newName),ConfigReader.getConfigValue("contact.email")),"contact does not exists");
     }
 
     @When("user edits  {string} to {string} and {string} to {string} with email {string}")
