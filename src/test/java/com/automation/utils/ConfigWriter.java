@@ -9,7 +9,7 @@ import java.util.Properties;
 
 public class ConfigWriter {
 
-    public void writeToPropertiesFile( String key, String value) {
+    public static void writeToPropertiesFile( String key, String value) {
         Properties properties = new Properties();
         String filePath = "src/test/resources/Config/A.properties";
         try (FileInputStream in = new FileInputStream(filePath)) {
@@ -18,10 +18,10 @@ public class ConfigWriter {
             e.printStackTrace();
         }
         try (FileOutputStream out = new FileOutputStream(filePath)) {
-            // Set the key-value pair
+
             properties.setProperty(key, value);
 
-            // Save the properties to the specified file
+
             properties.store(out, "Updated properties file");
             System.out.println("Property " + key + " has been written to the file.");
         } catch (IOException e) {
@@ -29,13 +29,6 @@ public class ConfigWriter {
         }
     }
 
-    public static void main(String[] args) {
-        ConfigWriter writer = new ConfigWriter();
-        BasePage basePage = new BasePage();
-        String key = "invite.email";
-        String value = basePage.getRandomEmail();
 
-        writer.writeToPropertiesFile(key, value);
-    }
 }
 
