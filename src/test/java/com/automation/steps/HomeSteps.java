@@ -38,7 +38,7 @@ public class HomeSteps {
 
     @Then("verify events are deleted of name {string}")
     public void verifyEventsAreDeletedOfName(String eventName) {
-        Assert.assertTrue(homePage.areEventsDeleted(ConfigReader.getConfigValue(eventName)));
+        Assert.assertTrue(homePage.isEventDeleted(ConfigReader.getConfigValue(eventName)));
     }
 
     @When("user clicks on event of name {string} and duration {string}")
