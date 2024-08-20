@@ -74,4 +74,9 @@ public class HomeSteps {
     }
 
 
+    @When("user clicks on routing link")
+    public void userClicksOnRoutingLink() {
+        homePage.clickOnRoutingLink();
+    }
+
 }

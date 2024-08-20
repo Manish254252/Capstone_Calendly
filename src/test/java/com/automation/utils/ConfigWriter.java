@@ -1,7 +1,5 @@
 package com.automation.utils;
 
-import com.automation.pages.BasePage;
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;

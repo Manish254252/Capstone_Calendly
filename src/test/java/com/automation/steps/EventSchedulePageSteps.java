@@ -26,11 +26,6 @@ public class EventSchedulePageSteps {
         eventSchedulePage.selectTime();
     }
 
-    @And("user enters event name {string} and {string}")
-    public void userEntersEventNameAnd(String name, String msg) {
-
-    }
-
     @And("clicks on schedule button")
     public void clicksOnScheduleButton() {
         eventSchedulePage.clickScheduleButton();
