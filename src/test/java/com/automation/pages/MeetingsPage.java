@@ -109,6 +109,7 @@ public class MeetingsPage extends BasePage {
 
     public boolean isMeetingCanceled(String meetingName, String eventScheduleName) {
         driver.navigate().refresh();
+        actions.pause(3000).build().perform();
         for(int i = 0; i < meetingNames.size(); i++){
             if(meetingNames.get(i).getText().equals(meetingName) && eventNames.get(i).getText().equals(eventScheduleName)){
                 return false;

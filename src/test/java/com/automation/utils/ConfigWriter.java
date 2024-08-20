@@ -9,7 +9,7 @@ public class ConfigWriter {
 
     public static void writeToPropertiesFile( String key, String value) {
         Properties properties = new Properties();
-        String filePath = "src/test/resources/Config/A.properties";
+        String filePath = "src/test/resources/Config/Config.properties";
         try (FileInputStream in = new FileInputStream(filePath)) {
             properties.load(in);
         } catch (IOException e) {
