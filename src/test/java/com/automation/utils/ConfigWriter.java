@@ -9,7 +9,7 @@ import java.util.Properties;
 
 public class ConfigWriter {
 
-    public void writeToPropertiesFile( String key, String value) {
+    public static void writeToPropertiesFile( String key, String value) {
         Properties properties = new Properties();
         String filePath = "src/test/resources/Config/A.properties";
         try (FileInputStream in = new FileInputStream(filePath)) {
