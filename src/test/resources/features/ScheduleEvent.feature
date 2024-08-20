@@ -1,4 +1,4 @@
-Feature: Schedule an event functionality
+Feature: Schedule an event/meeting functionality
 
   Background:
     Given user opens website

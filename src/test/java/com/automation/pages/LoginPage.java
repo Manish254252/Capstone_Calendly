@@ -35,11 +35,7 @@ public class LoginPage extends BasePage {
     }
 
     public void clickOnLoginBtn() {
-        if(isPresent(cookieAccept))
-        {
-            cookieAccept.click();
-        }
-        loginBtn.click();
+        click(loginBtn);
     }
 
 
