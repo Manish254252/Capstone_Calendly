@@ -80,9 +80,9 @@ public class HomePage extends BasePage {
         return isEventPresent && isDurationPresent;
     }
 
+        boolean eventsDeleted = false;
     public void deleteEventsOfName(String eventName) {
 
-        boolean eventsDeleted = false;
         while (!eventsDeleted) {
             List<WebElement> eventNamesList = driver.findElements(By.xpath("//div[@data-component='sortable']//h2"));
             List<WebElement> settingOptions = driver.findElements(By.xpath("//div[@data-component='sortable']//h2/ancestor::div[@data-component='event-type-card-list']//button[@aria-expanded]"));
@@ -101,9 +101,9 @@ public class HomePage extends BasePage {
                         WebElement deleteButton = settingOptionElement.findElement(By.xpath("//div[@data-component='event-type-card-list']//button[@aria-expanded]/following-sibling::div//button/div[text()='Delete']"));
                         deleteButton.click();
                         deleteConfirmBtn.click();
-//                        actions.pause(3000).build().perform();
+                        actions.pause(5000).build().perform();
                         eventsDeleted = true;
-                        System.out.println(eventNamesList.size());
+
                         break;
                     }
                 } catch (Exception e) {
@@ -114,12 +114,9 @@ public class HomePage extends BasePage {
         }
     }
 
-    public boolean areEventsDeleted(String eventName) {
-        List<WebElement> eventNamesList = driver.findElements(By.xpath("//div[@data-component='sortable']//h2"));
-        System.out.println(noOfEventsBeforeDeletion);
-        System.out.println(noOfEventsAfterDeletion);
-        noOfEventsAfterDeletion = eventNamesList.size();
-        return noOfEventsAfterDeletion < noOfEventsBeforeDeletion;
+    public boolean isEventDeleted(String eventName) {
+
+        return eventsDeleted;
 
     }
 

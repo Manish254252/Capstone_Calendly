@@ -83,7 +83,7 @@ public class BasePage {
         }
 
 
-        String[] domains = {"example.com", "testmail.com", "fakemail.net", "sample.org", "mockemail.co"};
+        String[] domains = {"gmail.com", "hotmail.com", "fakemail.net", "sample.org", "mockemail.co"};
         email.append("@").append(domains[random.nextInt(domains.length)]);
 
         return email.toString();

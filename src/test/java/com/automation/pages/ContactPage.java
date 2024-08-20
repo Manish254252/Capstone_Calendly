@@ -90,7 +90,7 @@ public class ContactPage extends BasePage {
     }
 
     public void enterEmail(String data) {
-//        ConfigReader.setConfigValue(data, getRandomEmail());
+
         ConfigWriter.writeToPropertiesFile(data,getRandomEmail());
         data = ConfigReader.getConfigValue(data);
         email.sendKeys(data);
