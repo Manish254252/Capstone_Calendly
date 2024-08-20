@@ -1,4 +1,4 @@
-Feature: Download schedules Functionality
+Feature: Download schedules / meetings event Functionality
 
   Scenario: Verify user can download the meetings scheduled
     Given user opens website
@@ -13,4 +13,3 @@ Feature: Download schedules Functionality
     Then verify meetings page is displayed
     When user clicks on export button
     Then verify file is downloaded
-
