@@ -101,7 +101,7 @@ public class HomePage extends BasePage {
                         WebElement deleteButton = settingOptionElement.findElement(By.xpath("//div[@data-component='event-type-card-list']//button[@aria-expanded]/following-sibling::div//button/div[text()='Delete']"));
                         deleteButton.click();
                         deleteConfirmBtn.click();
-                        actions.pause(2000).build().perform();
+//                        actions.pause(3000).build().perform();
                         eventsDeleted = true;
                         System.out.println(eventNamesList.size());
                         break;
@@ -116,6 +116,8 @@ public class HomePage extends BasePage {
 
     public boolean areEventsDeleted(String eventName) {
         List<WebElement> eventNamesList = driver.findElements(By.xpath("//div[@data-component='sortable']//h2"));
+        System.out.println(noOfEventsBeforeDeletion);
+        System.out.println(noOfEventsAfterDeletion);
         noOfEventsAfterDeletion = eventNamesList.size();
         return noOfEventsAfterDeletion < noOfEventsBeforeDeletion;
 
