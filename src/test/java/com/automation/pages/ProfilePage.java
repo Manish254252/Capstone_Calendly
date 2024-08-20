@@ -51,6 +51,7 @@ public class ProfilePage extends BasePage{
     }
 
     public boolean isChangesSaved() {
+        System.out.println(savedMsg.getText());
         return savedMsg.getText().equals("Your settings have been saved!");
     }
 
