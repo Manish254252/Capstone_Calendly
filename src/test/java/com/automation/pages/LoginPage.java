@@ -20,6 +20,9 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//form/div/div/div[text()]")
     WebElement noSuchAccount;
 
+    @FindBy(id = "onetrust-accept-btn-handler")
+    WebElement cookieAccept;
+
 
 
 
@@ -32,6 +35,10 @@ public class LoginPage extends BasePage {
     }
 
     public void clickOnLoginBtn() {
+        if(isPresent(cookieAccept))
+        {
+            cookieAccept.click();
+        }
         loginBtn.click();
     }
 

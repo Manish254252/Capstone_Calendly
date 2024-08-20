@@ -1,5 +1,6 @@
 package com.automation.pages;
 
+import com.automation.utils.ConfigReader;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -33,6 +34,8 @@ public class InvitePage extends BasePage{
     }
 
     public void enterInvitesEmails(String email) {
+        ConfigReader.setConfigValue(email,getRandomEmail());
+        email = ConfigReader.getConfigValue(email);
         emailAddressBox.click();
         emailAddressBox.sendKeys(email);
     }
