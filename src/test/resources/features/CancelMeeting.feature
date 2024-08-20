@@ -12,6 +12,7 @@ Feature: Cancel meeting functionality
     And verify user is on homepage
     When user clicks on meetings link
     Then verify meetings page is displayed
+    And verify meeting is present of name "eventSchedule.name" and event name "newEvent.name"
     When user clicks on meeting of name "eventSchedule.name" and event name "newEvent.name"
     And clicks on cancel button
     Then verify cancel event pop up is displayed

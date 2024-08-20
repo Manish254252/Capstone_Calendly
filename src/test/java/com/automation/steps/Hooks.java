@@ -27,21 +27,21 @@ public class Hooks {
         ReportManager.initReport(scenario);
     }
 
-//    @AfterStep
-//    public void afterStep(Scenario scenario) {
-//
-//        if (scenario.isFailed()) {
-//            ReportManager.attachScreenShot();
-//        }
-//    }
-//
-//    @After
-//    public void tearDown(Scenario scenario) {
-//
-//        if (scenario.isFailed()) {
-//            ReportManager.attachScreenShot();
-//        }
-//        DriverManager.getDriver().quit();
-//    }
+    @AfterStep
+    public void afterStep(Scenario scenario) {
+
+        if (scenario.isFailed()) {
+            ReportManager.attachScreenShot();
+        }
+    }
+
+    @After
+    public void tearDown(Scenario scenario) {
+
+        if (scenario.isFailed()) {
+            ReportManager.attachScreenShot();
+        }
+        DriverManager.getDriver().quit();
+    }
 
 }

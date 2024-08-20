@@ -51,4 +51,10 @@ public class MeetingsPageSteps {
     public void verifyEventIsCancelledOfMeetingNameAndEventName(String eventScheduleName, String eventName) {
         Assert.assertTrue(meetingsPage.isMeetingCanceled(ConfigReader.getConfigValue(eventScheduleName), ConfigReader.getConfigValue(eventName)));
     }
+
+
+    @And("verify meeting is present of name {string} and event name {string}")
+    public void verifyMeetingIsPresentOfNameAndEventName(String eventScheduleName, String eventName) {
+        Assert.assertTrue(meetingsPage.isMeetingPresent(ConfigReader.getConfigValue(eventScheduleName), ConfigReader.getConfigValue(eventName)));
+    }
 }

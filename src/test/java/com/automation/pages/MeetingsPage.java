@@ -108,12 +108,27 @@ public class MeetingsPage extends BasePage {
     }
 
     public boolean isMeetingCanceled(String meetingName, String eventScheduleName) {
+        driver.navigate().refresh();
         for(int i = 0; i < meetingNames.size(); i++){
             if(meetingNames.get(i).getText().equals(meetingName) && eventNames.get(i).getText().equals(eventScheduleName)){
-                eventList.get(i).click();
                 return false;
             }
         }
         return true;
+    }
+
+    public boolean isMeetingPresent(String meetingName, String eventScheduleName) {
+        System.out.println(meetingName);
+        System.out.println(eventScheduleName);
+        System.out.println(meetingNames);
+        System.out.println(eventNames);
+        for(int i = 0; i < meetingNames.size(); i++){
+            System.out.println(meetingNames.get(i).getText());
+            System.out.println(eventNames.get(i).getText());
+            if(meetingNames.get(i).getText().equals(meetingName) && eventNames.get(i).getText().equals(eventScheduleName)){
+                return true;
+            }
+        }
+        return false;
     }
 }
