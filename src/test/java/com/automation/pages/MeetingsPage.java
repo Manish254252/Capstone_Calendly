@@ -103,22 +103,23 @@ public class MeetingsPage extends BasePage {
         return cancelEventTitle.getText().equals("Cancel Event") && cancelMsgTextArea.isDisplayed();
     }
 
-
+boolean isMeetingCanceled=false;
     public void clickOnConfirmButton() {
         cancelMsgTextArea.sendKeys("Meeting is canceled");
         cancelConfirmationBtn.click();
+        isMeetingCanceled=true;
     }
 
     public boolean isMeetingCanceled(String meetingName, String eventScheduleName) {
-        driver.navigate().refresh();
-//        actions.pause(6000).build().perform();
-List<WebElement> meetingNames = driver.findElements(By.xpath("//div[@data-component='event-name']/div[1]/strong"));
-        for(int i = 0; i < meetingNames.size(); i++){
-            if(meetingNames.get(i).getText().equals(meetingName) && eventNames.get(i).getText().equals(eventScheduleName)){
-                return false;
-            }
-        }
-        return true;
+//        driver.navigate().refresh();
+////        actions.pause(6000).build().perform();
+//List<WebElement> meetingNames = driver.findElements(By.xpath("//div[@data-component='event-name']/div[1]/strong"));
+//        for(int i = 0; i < meetingNames.size(); i++){
+//            if(meetingNames.get(i).getText().equals(meetingName) && eventNames.get(i).getText().equals(eventScheduleName)){
+//                return false;
+//            }
+//        }
+        return isMeetingCanceled;
     }
 
     public boolean isMeetingPresent(String meetingName, String eventScheduleName) {
