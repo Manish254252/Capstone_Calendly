@@ -40,4 +40,9 @@ public class InvitePageSteps {
     public void verifyInvitationsAreSent() {
         Assert.assertTrue(invitePage.isInvitationSent());
     }
+
+    @Then("verify upgrade plan popUp is displayed")
+    public void verifyUpgradePlanPopUpIsDisplayed() {
+        Assert.assertTrue(invitePage.isUpgradePlanPopUpDisplayed());
+    }
 }

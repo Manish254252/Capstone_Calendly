@@ -29,6 +29,9 @@ public class InvitePage extends BasePage{
     @FindBy(xpath = "//div[@data-component='main']//h1[contains(text(), 'All done')]")
     WebElement confirmationMsg;
 
+    @FindBy(xpath = "//div[@role='dialog']//h3")
+    WebElement upgradePlanHeading;
+
     public void clickOnInviteUserButton() {
         inviteUsersBtn.click();
     }
@@ -54,5 +57,9 @@ public class InvitePage extends BasePage{
 
     public boolean isInvitationSent() {
         return confirmationMsg.isDisplayed();
+    }
+
+    public boolean isUpgradePlanPopUpDisplayed() {
+        return upgradePlanHeading.getText().equalsIgnoreCase("Upgrade to Standard");
     }
 }
