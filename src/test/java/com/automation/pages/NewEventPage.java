@@ -33,6 +33,9 @@ public class NewEventPage extends BasePage{
     @FindBy(xpath = "//h1[contains(text(), 'Your event type is ready!')] ")
     WebElement confirmationDialogueBox;
 
+    @FindBy(xpath = "//div[@role='listbox']/button[1]")
+    WebElement durationFirstOption;
+
     @FindBy(xpath = "//button[contains(text(),'Done')]")
     WebElement doneBtn;
 
@@ -66,8 +69,9 @@ public class NewEventPage extends BasePage{
     public void enterEventNameAndDuration(String eventName, String duration) {
         newEventNameInput.sendKeys(eventName);
         eventDuration.click();
-        String xpath = String.format(XPATH_DURATION,duration);
-        driver.findElement(By.xpath(xpath)).click();
+//        String xpath = String.format(XPATH_DURATION,duration);
+//        driver.findElement(By.xpath(xpath)).click();
+        durationFirstOption.click();
 
         if(isPresentWithoutWait(inviteLimitInput)){
             inviteLimitInput.sendKeys(ConfigReader.getConfigValue("maxInviteLimit"));
