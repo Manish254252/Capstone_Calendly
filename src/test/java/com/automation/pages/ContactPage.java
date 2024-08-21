@@ -90,10 +90,9 @@ public class ContactPage extends BasePage {
     }
 
     public void enterEmail(String data) {
-
-        ConfigWriter.writeToPropertiesFile(data,getRandomEmail());
-        data = ConfigReader.getConfigValue(data);
-        email.sendKeys(data);
+        String emailRandom = getRandomEmail();
+        ConfigWriter.writeToPropertiesFile(data,emailRandom);
+        email.sendKeys(emailRandom);
     }
 
     public void enterTimeZone(String data) {
