@@ -72,9 +72,7 @@ public class NewEventPage extends BasePage{
         if(isPresentWithoutWait(inviteLimitInput)){
             inviteLimitInput.sendKeys(ConfigReader.getConfigValue("maxInviteLimit"));
         }
-//        if(eventName.contains("Group")){
-//            inviteLimitInput.sendKeys(ConfigReader.getConfigValue("maxInviteLimit"));
-//        }
+
     }
 
     public void clickContinueButton() {

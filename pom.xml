@@ -75,7 +75,7 @@
                 <configuration>
                     <!-- Specify test sources, include/exclude patterns, etc. -->
                     <includes>
-<!--                        <include>**/*TestNGRunner.java</include>-->
+                        <include>**/*TestNGRunner.java</include>
                     </includes>
                     <testFailureIgnore>
                         true

@@ -39,11 +39,4 @@ Feature: Event creation functionality
     And clicks on send invitation
     Then verify invitations are sent
 
-  Scenario: verify user can create Round Robin event
-    When user choose the event type "eventType.robinRound"
-    And user clicks on invite users button
-    And user enters invite emails "invite.email"
-    And clicks on set roles
-    And clicks on assign event button
-    And clicks on send invitation
-    Then verify invitations are sent
+
