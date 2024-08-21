@@ -2,6 +2,7 @@ package com.automation.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.io.File;
 import java.nio.file.Path;
@@ -109,7 +110,8 @@ public class MeetingsPage extends BasePage {
 
     public boolean isMeetingCanceled(String meetingName, String eventScheduleName) {
         driver.navigate().refresh();
-        actions.pause(3000).build().perform();
+//        actions.pause(3000).build().perform();
+        wait.until(ExpectedConditions.visibilityOf((WebElement) meetingNames));
         for(int i = 0; i < meetingNames.size(); i++){
             if(meetingNames.get(i).getText().equals(meetingName) && eventNames.get(i).getText().equals(eventScheduleName)){
                 return false;
