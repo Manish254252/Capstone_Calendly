@@ -1,5 +1,6 @@
 package com.automation.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -110,7 +111,8 @@ public class MeetingsPage extends BasePage {
 
     public boolean isMeetingCanceled(String meetingName, String eventScheduleName) {
         driver.navigate().refresh();
-
+//        actions.pause(6000).build().perform();
+List<WebElement> meetingNames = driver.findElements(By.xpath("//div[@data-component='event-name']/div[1]/strong"));
         for(int i = 0; i < meetingNames.size(); i++){
             if(meetingNames.get(i).getText().equals(meetingName) && eventNames.get(i).getText().equals(eventScheduleName)){
                 return false;
