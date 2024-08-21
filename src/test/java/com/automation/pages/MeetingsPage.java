@@ -121,13 +121,11 @@ public class MeetingsPage extends BasePage {
     }
 
     public boolean isMeetingPresent(String meetingName, String eventScheduleName) {
-        System.out.println(meetingName);
-        System.out.println(eventScheduleName);
-        System.out.println(meetingNames);
-        System.out.println(eventNames);
+        System.out.println("Passed meeting name: "+meetingName);
+        System.out.println("Passed event name: "+eventScheduleName);
         for(int i = 0; i < meetingNames.size(); i++){
-            System.out.println(meetingNames.get(i).getText());
-            System.out.println(eventNames.get(i).getText());
+            System.out.println("meet: "+meetingNames.get(i).getText());
+            System.out.println("event: "+eventNames.get(i).getText());
             if(meetingNames.get(i).getText().equals(meetingName) && eventNames.get(i).getText().equals(eventScheduleName)){
                 return true;
             }

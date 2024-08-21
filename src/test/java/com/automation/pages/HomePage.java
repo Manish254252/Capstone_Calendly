@@ -32,6 +32,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//div[@data-calendly-label='left-nav-main-items-container']//span[contains(text(),'Meetings')]")
     WebElement meetingsLink;
 
+    @FindBy(xpath = "//div[@data-calendly-label='left-nav-main-items-container']//span[contains(text(),'Routing')]")
+    WebElement routingLink;
+
     @FindBy(id = "main-user-menu-toggle")
     WebElement profileIconBtn;
 
@@ -143,5 +146,9 @@ public class HomePage extends BasePage {
 
     public void clickOnProfileLink() {
         profileLink.click();
+    }
+
+    public void clickOnRoutingLink() {
+        routingLink.click();
     }
 }

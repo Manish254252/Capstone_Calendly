@@ -15,7 +15,7 @@ Feature: Schedule an event/meeting functionality
     And switch the tab
     Then verify user is on event schedule page
     When user selects date "eventSchedule.date"
-    And user selects time "eventSchedule.time"
+    And user selects time
     And user enters event name "eventSchedule.name" email "eventSchedule.email" and "eventSchedule.Msg"
     And clicks on schedule button
     Then verify event is scheduled

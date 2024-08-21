@@ -35,13 +35,13 @@ public class Hooks {
         }
     }
 
-    @After
-    public void tearDown(Scenario scenario) {
-
-        if (scenario.isFailed()) {
-            ReportManager.attachScreenShot();
-        }
-        DriverManager.getDriver().quit();
-    }
+//    @After
+//    public void tearDown(Scenario scenario) {
+//
+//        if (scenario.isFailed()) {
+//            ReportManager.attachScreenShot();
+//        }
+//        DriverManager.getDriver().quit();
+//    }
 
 }

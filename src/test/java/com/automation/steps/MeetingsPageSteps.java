@@ -57,4 +57,5 @@ public class MeetingsPageSteps {
     public void verifyMeetingIsPresentOfNameAndEventName(String eventScheduleName, String eventName) {
         Assert.assertTrue(meetingsPage.isMeetingPresent(ConfigReader.getConfigValue(eventScheduleName), ConfigReader.getConfigValue(eventName)));
     }
+
 }

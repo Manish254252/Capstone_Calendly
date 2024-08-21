@@ -58,6 +58,10 @@ public class BasePage {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
+    public void waitUntilClickable(WebElement element){
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
     public void switchTab() {
         List<String> windowIds = driver.getWindowHandles().stream().toList();
         String currentWindowId = windowIds.get(0);
