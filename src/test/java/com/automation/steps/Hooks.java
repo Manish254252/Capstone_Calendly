@@ -18,7 +18,6 @@ public class Hooks {
 
     WebDriver driver;
 
-
     @Before
     public void setUp(Scenario scenario) {
         ConfigReader.initConfig();

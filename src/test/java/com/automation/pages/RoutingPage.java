@@ -47,7 +47,7 @@ public class RoutingPage extends BasePage {
     @FindBy(xpath = "//div[@aria-live='polite']")
     WebElement changesSavedMsg;
 
-    @FindBy(xpath = "//div[@data-component='sticky-footer']//button[3]")
+    @FindBy(xpath = "//div[@data-component='sticky-footer']//button/span[text()='Next']")
     WebElement nextBtn;
 
     @FindBy(xpath = "//span[text()='Publish form']")

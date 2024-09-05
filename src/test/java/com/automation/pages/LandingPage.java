@@ -1,10 +1,11 @@
 package com.automation.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LandingPage extends BasePage {
-    @FindBy(xpath = "//a[@data-testid='login-header']")
+    @FindBy(xpath = "//ul[@id='right-side-components']//a[contains(@class,'button-link') and @data-testid='login-header']")
     WebElement loginLink;
 
     public void openWebsite() {
@@ -12,7 +13,7 @@ public class LandingPage extends BasePage {
     }
 
     public void clickOnLoginLink()
-    {
+    {   loginLink = driver.findElement(By.xpath("//ul[@id='right-side-components']//a[contains(@class,'button-link') and @data-testid='login-header']"));
         loginLink.click();
     }
 
