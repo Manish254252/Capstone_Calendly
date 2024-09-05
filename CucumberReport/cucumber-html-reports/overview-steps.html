@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.tablesorter.min.js"></script>
+<script src="js/Chart.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+<link rel="stylesheet" href="css/cucumber.css" type="text/css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="shortcut icon" href="images/favicon.png"/>
+
+<script>
+$(document).ready(function() {
+    // this will tell tablesorter to try looking for the data-value attribute
+    // if present, it'll sort by that instead
+    // otherwise, it'll sort by the text content of the table cell
+    $("#tablesorter").tablesorter({
+        textAttribute: 'data-value',
+        // ignores the first row of the header, the 'scenario', 'steps', since
+        // sorting those doesn't make sense
+        selectorHeaders: '> thead tr:not(.dont-sort) th',
+        // use a stable sort
+        sortStable: true
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<title>Cucumber Reports (no 1) - Steps Overview</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <p class="navbar-text navbar-left">Cucumber Report</p>
+      <ul class="nav navbar-nav navbar-right">
+        <li role="presentation" ><a href="overview-features.html">Features</a></li>
+        <li role="presentation" ><a href="overview-tags.html">Tags</a></li>
+        <li role="presentation"     class="active" ><a href="overview-steps.html">Steps</a></li>
+        <li role="presentation" ><a href="overview-failures.html">Failures</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="col-md-5 col-md-offset-1">
+
+<table class="table table-bordered" id="build-info">
+  <thead>
+    <tr>
+      <th>Project</th>
+        <th>Number</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="info">
+      <td>cucumberReporting</td>
+        <td>1</td>
+      <td>04 Sep 2024, 17:55</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="col-md-3 col-md-offset-2">
+  </div>
+</div>
+
+
+<div id="report-lead" class="container-fluid">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>Steps Statistics</h2>
+      <p>The following graph shows step statistics for this build. Below list is based on results.
+ step does not provide information about result then is not listed below.
+ Additionally @Before and @After are not counted because they are part of the scenarios, not steps.</p>
+  </div>
+</div>
+
+<div class="container-fluid" id="report">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table id="tablesorter" class="stats-table table-hover">
+
+        <thead>
+          <tr class="header">
+            <th>Implementation</th>
+            <th>Occurrences</th>
+            <th>Average duration</th>
+            <th>Max duration</th>
+            <th>Total durations</th>
+            <th>Ratio</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+              <td class="location">com.automation.steps.AvailabilityPageSteps.user_click_on_holidays_tab()</td>
+              <td>2</td>
+              <td class="duration" data-value="502150">0.000</td>
+              <td class="duration" data-value="502150">0.001</td>
+              <td class="duration" data-value="1004300">0.001</td>
+              <td class="failed">0.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.AvailabilityPageSteps.verify_user_is_on_availability_page()</td>
+              <td>2</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="failed">0.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.ContactSteps.userClicksOnRemoveButtonOf(java.lang.String,java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="1224177000">1.224</td>
+              <td class="duration" data-value="1224177000">1.224</td>
+              <td class="duration" data-value="1224177000">1.224</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.ContactSteps.userEditsToAndToWithEmail(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="2737311400">2.737</td>
+              <td class="duration" data-value="2737311400">2.737</td>
+              <td class="duration" data-value="2737311400">2.737</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.ContactSteps.user_clicks_on_the_add_to_contacts_icon()</td>
+              <td>1</td>
+              <td class="duration" data-value="520250500">0.520</td>
+              <td class="duration" data-value="520250500">0.520</td>
+              <td class="duration" data-value="520250500">0.520</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.ContactSteps.user_clicks_on_the_button()</td>
+              <td>2</td>
+              <td class="duration" data-value="125581000">0.125</td>
+              <td class="duration" data-value="125581000">0.127</td>
+              <td class="duration" data-value="251162000">0.251</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.ContactSteps.user_enters_as_the_email_for_the_contact(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="690810500">0.690</td>
+              <td class="duration" data-value="690810500">0.690</td>
+              <td class="duration" data-value="690810500">0.690</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.ContactSteps.user_enters_as_the_first_name_for_the_contact(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="929522900">0.929</td>
+              <td class="duration" data-value="929522900">0.929</td>
+              <td class="duration" data-value="929522900">0.929</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.ContactSteps.user_enters_as_the_phone_number_for_the_contact(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="485978100">0.485</td>
+              <td class="duration" data-value="485978100">0.485</td>
+              <td class="duration" data-value="485978100">0.485</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.ContactSteps.user_navigates_to_the_section()</td>
+              <td>3</td>
+              <td class="duration" data-value="472481300">0.472</td>
+              <td class="duration" data-value="472481300">0.911</td>
+              <td class="duration" data-value="1417443900">1.417</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.ContactSteps.user_selects_as_the_timezone_for_the_contact(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="740309900">0.740</td>
+              <td class="duration" data-value="740309900">0.740</td>
+              <td class="duration" data-value="740309900">0.740</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.ContactSteps.verifyContactWithNameAndEmailAsIsRemoved(java.lang.String,java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="365543300">0.365</td>
+              <td class="duration" data-value="365543300">0.365</td>
+              <td class="duration" data-value="365543300">0.365</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.ContactSteps.verifyTheContactIsSuccessfullyEdited(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="149600400">0.149</td>
+              <td class="duration" data-value="149600400">0.149</td>
+              <td class="duration" data-value="149600400">0.149</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.ContactSteps.verify_the_add_contact_form_is_displayed()</td>
+              <td>1</td>
+              <td class="duration" data-value="69868600">0.069</td>
+              <td class="duration" data-value="69868600">0.069</td>
+              <td class="duration" data-value="69868600">0.069</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.ContactSteps.verify_the_contact_is_successfully_added_to_the_contact_list(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="794878500">0.794</td>
+              <td class="duration" data-value="794878500">0.794</td>
+              <td class="duration" data-value="794878500">0.794</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.EventSchedulePageSteps.clicksOnScheduleButton()</td>
+              <td>1</td>
+              <td class="duration" data-value="99942700">0.099</td>
+              <td class="duration" data-value="99942700">0.099</td>
+              <td class="duration" data-value="99942700">0.099</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.EventSchedulePageSteps.userEntersEventNameEmailAnd(java.lang.String,java.lang.String,java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="836400300">0.836</td>
+              <td class="duration" data-value="836400300">0.836</td>
+              <td class="duration" data-value="836400300">0.836</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.EventSchedulePageSteps.userSelectsDate(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="1164747800">1.164</td>
+              <td class="duration" data-value="1164747800">1.164</td>
+              <td class="duration" data-value="1164747800">1.164</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.EventSchedulePageSteps.userSelectsTime()</td>
+              <td>1</td>
+              <td class="duration" data-value="363033100">0.363</td>
+              <td class="duration" data-value="363033100">0.363</td>
+              <td class="duration" data-value="363033100">0.363</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.EventSchedulePageSteps.verifyEventIsScheduled()</td>
+              <td>1</td>
+              <td class="duration" data-value="1773405300">1.773</td>
+              <td class="duration" data-value="1773405300">1.773</td>
+              <td class="duration" data-value="1773405300">1.773</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.EventSchedulePageSteps.verifyUserIsOnEventSchedulePage()</td>
+              <td>1</td>
+              <td class="duration" data-value="4572038400">4.572</td>
+              <td class="duration" data-value="4572038400">4.572</td>
+              <td class="duration" data-value="4572038400">4.572</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.HolidaysPageSteps.clicks_on_apply_button()</td>
+              <td>2</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="failed">0.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.HolidaysPageSteps.clicks_on_change_link()</td>
+              <td>2</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="failed">0.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.HolidaysPageSteps.clicks_on_country(java.lang.String)</td>
+              <td>2</td>
+              <td class="duration" data-value="560150">0.000</td>
+              <td class="duration" data-value="560150">0.001</td>
+              <td class="duration" data-value="1120300">0.001</td>
+              <td class="failed">0.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.HolidaysPageSteps.first_two_holidays_are_unchecked()</td>
+              <td>2</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="failed">0.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.HolidaysPageSteps.user_clicks_on_countries_list_button()</td>
+              <td>2</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="failed">0.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.HolidaysPageSteps.verify_holiday_setting_is_displayed()</td>
+              <td>2</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="failed">0.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.HolidaysPageSteps.verify_holidays_of_country_are_displayed(java.lang.String)</td>
+              <td>2</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="failed">0.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.HomeSteps.clicksOnProfileLink()</td>
+              <td>3</td>
+              <td class="duration" data-value="84358900">0.084</td>
+              <td class="duration" data-value="84358900">0.253</td>
+              <td class="duration" data-value="253076700">0.253</td>
+              <td class="failed">33.33%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.HomeSteps.switchTheTab()</td>
+              <td>1</td>
+              <td class="duration" data-value="27925800">0.027</td>
+              <td class="duration" data-value="27925800">0.027</td>
+              <td class="duration" data-value="27925800">0.027</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.HomeSteps.userClicksOnEventOfNameAndDuration(java.lang.String,java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="2641598900">2.641</td>
+              <td class="duration" data-value="2641598900">2.641</td>
+              <td class="duration" data-value="2641598900">2.641</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.HomeSteps.userClicksOnMeetingsLink()</td>
+              <td>2</td>
+              <td class="duration" data-value="339037700">0.339</td>
+              <td class="duration" data-value="339037700">0.486</td>
+              <td class="duration" data-value="678075400">0.678</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.HomeSteps.userClicksOnNewEventTypeButton()</td>
+              <td>3</td>
+              <td class="duration" data-value="1521216033">1.521</td>
+              <td class="duration" data-value="1521216033">2.676</td>
+              <td class="duration" data-value="4563648100">4.563</td>
+              <td class="failed">66.67%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.HomeSteps.userClicksOnProfileIcon()</td>
+              <td>3</td>
+              <td class="duration" data-value="310121833">0.310</td>
+              <td class="duration" data-value="310121833">0.930</td>
+              <td class="duration" data-value="930365500">0.930</td>
+              <td class="failed">33.33%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.HomeSteps.userClicksOnRoutingLink()</td>
+              <td>2</td>
+              <td class="duration" data-value="450095500">0.450</td>
+              <td class="duration" data-value="450095500">0.543</td>
+              <td class="duration" data-value="900191000">0.900</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.HomeSteps.userDeletesTheEventOfNameAndDuration(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="7264714400">7.264</td>
+              <td class="duration" data-value="7264714400">7.264</td>
+              <td class="duration" data-value="7264714400">7.264</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.HomeSteps.user_clicks_on_availability()</td>
+              <td>2</td>
+              <td class="duration" data-value="503500">0.000</td>
+              <td class="duration" data-value="503500">0.001</td>
+              <td class="duration" data-value="1007000">0.001</td>
+              <td class="failed">0.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.HomeSteps.verifyEventAndIsListedOnHomePage(java.lang.String,java.lang.String)</td>
+              <td>2</td>
+              <td class="duration" data-value="496440600">0.496</td>
+              <td class="duration" data-value="496440600">0.992</td>
+              <td class="duration" data-value="992881200">0.992</td>
+              <td class="failed">50.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.HomeSteps.verifyEventsAreDeletedOfName(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="997500">0.000</td>
+              <td class="duration" data-value="997500">0.000</td>
+              <td class="duration" data-value="997500">0.000</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.HomeSteps.verifyUserIsOnHomepage()</td>
+              <td>18</td>
+              <td class="duration" data-value="6230328277">6.230</td>
+              <td class="duration" data-value="6230328277">13.019</td>
+              <td class="duration" data-value="112145909000">1:52.145</td>
+              <td class="failed">72.22%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.Hooks.setUp(io.cucumber.java.Scenario)</td>
+              <td>20</td>
+              <td class="duration" data-value="2663673400">2.663</td>
+              <td class="duration" data-value="2663673400">3.242</td>
+              <td class="duration" data-value="53273468000">53.273</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.Hooks.tearDown(io.cucumber.java.Scenario)</td>
+              <td>20</td>
+              <td class="duration" data-value="2038886920">2.038</td>
+              <td class="duration" data-value="2038886920">3.614</td>
+              <td class="duration" data-value="40777738400">40.777</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.InvitePageSteps.clicksOnSendInvitation()</td>
+              <td>1</td>
+              <td class="duration" data-value="884741200">0.884</td>
+              <td class="duration" data-value="884741200">0.884</td>
+              <td class="duration" data-value="884741200">0.884</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.InvitePageSteps.clicksOnSetRoles()</td>
+              <td>1</td>
+              <td class="duration" data-value="97106100">0.097</td>
+              <td class="duration" data-value="97106100">0.097</td>
+              <td class="duration" data-value="97106100">0.097</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.InvitePageSteps.userClicksOnInviteUsersButton()</td>
+              <td>1</td>
+              <td class="duration" data-value="2211643300">2.211</td>
+              <td class="duration" data-value="2211643300">2.211</td>
+              <td class="duration" data-value="2211643300">2.211</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.InvitePageSteps.userEntersInviteEmails(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="4336721700">4.336</td>
+              <td class="duration" data-value="4336721700">4.336</td>
+              <td class="duration" data-value="4336721700">4.336</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.InvitePageSteps.verifyInvitationsAreSent()</td>
+              <td>1</td>
+              <td class="duration" data-value="1877208800">1.877</td>
+              <td class="duration" data-value="1877208800">1.877</td>
+              <td class="duration" data-value="1877208800">1.877</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.LandingSteps.userClicksOnLoginLink()</td>
+              <td>20</td>
+              <td class="duration" data-value="956710480">0.956</td>
+              <td class="duration" data-value="956710480">2.587</td>
+              <td class="duration" data-value="19134209600">19.134</td>
+              <td class="failed">75.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.LandingSteps.user_opens_website()</td>
+              <td>20</td>
+              <td class="duration" data-value="4850972800">4.850</td>
+              <td class="duration" data-value="4850972800">9.694</td>
+              <td class="duration" data-value="97019456000">1:37.019</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.LandingSteps.verifyIsOnLandingPage()</td>
+              <td>1</td>
+              <td class="duration" data-value="48094400">0.048</td>
+              <td class="duration" data-value="48094400">0.048</td>
+              <td class="duration" data-value="48094400">0.048</td>
+              <td class="failed">0.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.LoginSteps.userClicksOnContinueButton()</td>
+              <td>20</td>
+              <td class="duration" data-value="95693535">0.095</td>
+              <td class="duration" data-value="95693535">0.221</td>
+              <td class="duration" data-value="1913870700">1.913</td>
+              <td class="failed">75.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.LoginSteps.userClicksOnLoginBtn()</td>
+              <td>20</td>
+              <td class="duration" data-value="5515338110">5.515</td>
+              <td class="duration" data-value="5515338110">11.117</td>
+              <td class="duration" data-value="110306762200">1:50.306</td>
+              <td class="failed">75.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.LoginSteps.userEntersEmailAs(java.lang.String)</td>
+              <td>20</td>
+              <td class="duration" data-value="351940910">0.351</td>
+              <td class="duration" data-value="351940910">1.206</td>
+              <td class="duration" data-value="7038818200">7.038</td>
+              <td class="failed">75.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.LoginSteps.userEntersPasswordAs(java.lang.String)</td>
+              <td>18</td>
+              <td class="duration" data-value="167245261">0.167</td>
+              <td class="duration" data-value="167245261">0.837</td>
+              <td class="duration" data-value="3010414700">3.010</td>
+              <td class="failed">72.22%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.LoginSteps.verifyUserIsOnNotAbleToLogin()</td>
+              <td>2</td>
+              <td class="duration" data-value="743949600">0.743</td>
+              <td class="duration" data-value="743949600">0.756</td>
+              <td class="duration" data-value="1487899200">1.487</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.LoginSteps.verify_user_on_login_page()</td>
+              <td>20</td>
+              <td class="duration" data-value="1287396865">1.287</td>
+              <td class="duration" data-value="1287396865">2.729</td>
+              <td class="duration" data-value="25747937300">25.747</td>
+              <td class="failed">75.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.MeetingsPageSteps.clicksOnCancelButton()</td>
+              <td>1</td>
+              <td class="duration" data-value="146210500">0.146</td>
+              <td class="duration" data-value="146210500">0.146</td>
+              <td class="duration" data-value="146210500">0.146</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.MeetingsPageSteps.userClicksOnConfirmationButton()</td>
+              <td>1</td>
+              <td class="duration" data-value="390941300">0.390</td>
+              <td class="duration" data-value="390941300">0.390</td>
+              <td class="duration" data-value="390941300">0.390</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.MeetingsPageSteps.userClicksOnExportButton()</td>
+              <td>1</td>
+              <td class="duration" data-value="722214700">0.722</td>
+              <td class="duration" data-value="722214700">0.722</td>
+              <td class="duration" data-value="722214700">0.722</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.MeetingsPageSteps.userClicksOnMeetingOfNameAndEventName(java.lang.String,java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="192677900">0.192</td>
+              <td class="duration" data-value="192677900">0.192</td>
+              <td class="duration" data-value="192677900">0.192</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.MeetingsPageSteps.verifyCancelEventPopUpIsDisplayed()</td>
+              <td>1</td>
+              <td class="duration" data-value="84771900">0.084</td>
+              <td class="duration" data-value="84771900">0.084</td>
+              <td class="duration" data-value="84771900">0.084</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.MeetingsPageSteps.verifyEventIsCancelledOfMeetingNameAndEventName(java.lang.String,java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="31793936600">31.793</td>
+              <td class="duration" data-value="31793936600">31.793</td>
+              <td class="duration" data-value="31793936600">31.793</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.MeetingsPageSteps.verifyFileIsDownloaded()</td>
+              <td>1</td>
+              <td class="duration" data-value="997500">0.000</td>
+              <td class="duration" data-value="997500">0.000</td>
+              <td class="duration" data-value="997500">0.000</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.MeetingsPageSteps.verifyMeetingIsPresentOfNameAndEventName(java.lang.String,java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="1508526000">1.508</td>
+              <td class="duration" data-value="1508526000">1.508</td>
+              <td class="duration" data-value="1508526000">1.508</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.MeetingsPageSteps.verifyMeetingsPageIsDisplayed()</td>
+              <td>2</td>
+              <td class="duration" data-value="363916250">0.363</td>
+              <td class="duration" data-value="363916250">0.445</td>
+              <td class="duration" data-value="727832500">0.727</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.NewEventSteps.clicksOnContinueButton()</td>
+              <td>2</td>
+              <td class="duration" data-value="66465700">0.066</td>
+              <td class="duration" data-value="66465700">0.132</td>
+              <td class="duration" data-value="132931400">0.132</td>
+              <td class="failed">50.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.NewEventSteps.userChooseTheEventType(java.lang.String)</td>
+              <td>3</td>
+              <td class="duration" data-value="72142366">0.072</td>
+              <td class="duration" data-value="72142366">0.111</td>
+              <td class="duration" data-value="216427100">0.216</td>
+              <td class="failed">66.67%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.NewEventSteps.userClicksOnDoneButton()</td>
+              <td>2</td>
+              <td class="duration" data-value="179680400">0.179</td>
+              <td class="duration" data-value="179680400">0.359</td>
+              <td class="duration" data-value="359360800">0.359</td>
+              <td class="failed">50.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.NewEventSteps.userClicksOnNextButton()</td>
+              <td>2</td>
+              <td class="duration" data-value="86111600">0.086</td>
+              <td class="duration" data-value="86111600">0.171</td>
+              <td class="duration" data-value="172223200">0.172</td>
+              <td class="failed">50.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.NewEventSteps.userEntersEventNameAndDuration(java.lang.String,java.lang.String)</td>
+              <td>2</td>
+              <td class="duration" data-value="852944450">0.852</td>
+              <td class="duration" data-value="852944450">1.705</td>
+              <td class="duration" data-value="1705888900">1.705</td>
+              <td class="failed">50.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.NewEventSteps.verifyNewEventIsReadyMessageIsDisplayed()</td>
+              <td>2</td>
+              <td class="duration" data-value="1343433100">1.343</td>
+              <td class="duration" data-value="1343433100">2.685</td>
+              <td class="duration" data-value="2686866200">2.686</td>
+              <td class="failed">50.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.NewEventSteps.verifyNewEventTypePageIsDisplayed()</td>
+              <td>3</td>
+              <td class="duration" data-value="886886200">0.886</td>
+              <td class="duration" data-value="886886200">1.667</td>
+              <td class="duration" data-value="2660658600">2.660</td>
+              <td class="failed">66.67%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.ProfilePageSteps.userClicksOnLogoutLink()</td>
+              <td>1</td>
+              <td class="duration" data-value="2887129800">2.887</td>
+              <td class="duration" data-value="2887129800">2.887</td>
+              <td class="duration" data-value="2887129800">2.887</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.ProfilePageSteps.userClicksOnSaveChangesButton()</td>
+              <td>2</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="failed">0.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.ProfilePageSteps.userSelectsProfileAs(java.lang.String)</td>
+              <td>2</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="failed">0.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.ProfilePageSteps.userUpdatesNameAs(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="failed">0.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.ProfilePageSteps.userUpdatesWelcomeMessageAs(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="failed">0.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.ProfilePageSteps.verifyChangesHaveBeenSaved()</td>
+              <td>2</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="failed">0.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.ProfilePageSteps.verifyProfileIsChanged()</td>
+              <td>1</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="failed">0.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.ProfilePageSteps.verifyProfilePageIsDisplayed()</td>
+              <td>3</td>
+              <td class="duration" data-value="430405366">0.430</td>
+              <td class="duration" data-value="430405366">1.291</td>
+              <td class="duration" data-value="1291216100">1.291</td>
+              <td class="failed">33.33%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.RoutingPageSteps.clicksOnCreateNewForm()</td>
+              <td>1</td>
+              <td class="duration" data-value="754773100">0.754</td>
+              <td class="duration" data-value="754773100">0.754</td>
+              <td class="duration" data-value="754773100">0.754</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.RoutingPageSteps.clicksOnDeleteOption()</td>
+              <td>1</td>
+              <td class="duration" data-value="125973500">0.125</td>
+              <td class="duration" data-value="125973500">0.125</td>
+              <td class="duration" data-value="125973500">0.125</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.RoutingPageSteps.clicks_on_create_form()</td>
+              <td>1</td>
+              <td class="duration" data-value="90761900">0.090</td>
+              <td class="duration" data-value="90761900">0.090</td>
+              <td class="duration" data-value="90761900">0.090</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.RoutingPageSteps.clicks_on_publish_button()</td>
+              <td>1</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="failed">0.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.RoutingPageSteps.clicks_on_save_button()</td>
+              <td>2</td>
+              <td class="duration" data-value="59999400">0.059</td>
+              <td class="duration" data-value="59999400">0.074</td>
+              <td class="duration" data-value="119998800">0.119</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.RoutingPageSteps.selectsEmailAndPerformClick()</td>
+              <td>1</td>
+              <td class="duration" data-value="97739500">0.097</td>
+              <td class="duration" data-value="97739500">0.097</td>
+              <td class="duration" data-value="97739500">0.097</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.RoutingPageSteps.selects_name_and_perform_click()</td>
+              <td>1</td>
+              <td class="duration" data-value="146295000">0.146</td>
+              <td class="duration" data-value="146295000">0.146</td>
+              <td class="duration" data-value="146295000">0.146</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.RoutingPageSteps.userClicksOnConfirmDeleteButton()</td>
+              <td>1</td>
+              <td class="duration" data-value="111057100">0.111</td>
+              <td class="duration" data-value="111057100">0.111</td>
+              <td class="duration" data-value="111057100">0.111</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.RoutingPageSteps.userClicksOnNewRoutingFormButton()</td>
+              <td>1</td>
+              <td class="duration" data-value="220435700">0.220</td>
+              <td class="duration" data-value="220435700">0.220</td>
+              <td class="duration" data-value="220435700">0.220</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.RoutingPageSteps.userClicksOnOptionsOfRoutingName(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="277282000">0.277</td>
+              <td class="duration" data-value="277282000">0.277</td>
+              <td class="duration" data-value="277282000">0.277</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.RoutingPageSteps.userWritesAQuestionForEmail(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="294592500">0.294</td>
+              <td class="duration" data-value="294592500">0.294</td>
+              <td class="duration" data-value="294592500">0.294</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.RoutingPageSteps.user_clicks_on_add_a_question()</td>
+              <td>2</td>
+              <td class="duration" data-value="1353623050">1.353</td>
+              <td class="duration" data-value="1353623050">2.080</td>
+              <td class="duration" data-value="2707246100">2.707</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.RoutingPageSteps.user_clicks_on_next_button_of_routing_page()</td>
+              <td>1</td>
+              <td class="duration" data-value="646856300">0.646</td>
+              <td class="duration" data-value="646856300">0.646</td>
+              <td class="duration" data-value="646856300">0.646</td>
+              <td class="failed">0.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.RoutingPageSteps.user_enters_routing_form_name_as(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="149601600">0.149</td>
+              <td class="duration" data-value="149601600">0.149</td>
+              <td class="duration" data-value="149601600">0.149</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.RoutingPageSteps.user_writes_a_questionForName(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="483634100">0.483</td>
+              <td class="duration" data-value="483634100">0.483</td>
+              <td class="duration" data-value="483634100">0.483</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.RoutingPageSteps.verifyDeleteConfirmationPopupIsDisplayed()</td>
+              <td>1</td>
+              <td class="duration" data-value="271765600">0.271</td>
+              <td class="duration" data-value="271765600">0.271</td>
+              <td class="duration" data-value="271765600">0.271</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.RoutingPageSteps.verifyRoutingFormIsDeleted(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="80872600">0.080</td>
+              <td class="duration" data-value="80872600">0.080</td>
+              <td class="duration" data-value="80872600">0.080</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.RoutingPageSteps.verifyRoutingPageIsDisplayed()</td>
+              <td>2</td>
+              <td class="duration" data-value="1090940200">1.090</td>
+              <td class="duration" data-value="1090940200">1.338</td>
+              <td class="duration" data-value="2181880400">2.181</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.RoutingPageSteps.verifyRoutingPopupIsDisplayed()</td>
+              <td>1</td>
+              <td class="duration" data-value="33910200">0.033</td>
+              <td class="duration" data-value="33910200">0.033</td>
+              <td class="duration" data-value="33910200">0.033</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.automation.steps.RoutingPageSteps.verify_copy_routing_link_popup_is_displayed()</td>
+              <td>1</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="failed">0.00%</td>
+            </tr>
+        </tbody>
+
+        <tfoot class="total">
+          <tr>
+            <td>100</td>
+            <td>327</td>
+            <td class="duration">1.759</td>
+            <td class="duration">1:52.145</td>
+            <td class="duration">9:35.230</td>
+            <td>Totals</td>
+          </tr>
+        </tfoot>
+
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<nav class="navbar navbar-default" id="footer">
+  <div class="container-fluid">
+    <p class="navbar-text navbar-right">
+        <small>generate Cucumber HTML reports via:&nbsp;</small>
+        <a class="navbar-link" href="https://github.com/jenkinsci/cucumber-reports-plugin">Jenkins Plugin</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-reporting">Standalone</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-sandwich">Sandwich</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/maven-cucumber-reporting">Maven</a>
+        &nbsp;&nbsp;
+    </p>
+  </div>
+</nav>
+
+</body>
+</html>

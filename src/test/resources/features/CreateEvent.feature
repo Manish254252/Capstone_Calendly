@@ -35,10 +35,10 @@ Feature: Event creation functionality
     And user clicks on invite users button
     And user enters invite emails "invite.email"
     And clicks on set roles
-    Then verify upgrade plan popUp is displayed
+#    Then verify upgrade plan popUp is displayed
 #    And clicks on assign event button
-#    And clicks on send invitation
-#    Then verify invitations are sent
+    And clicks on send invitation
+    Then verify invitations are sent
 
 
 
